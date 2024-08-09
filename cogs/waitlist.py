@@ -15,9 +15,12 @@ class WaitlistCog(commands.Cog):
 
     # Fonction pour sauvegarder la liste d'attente dans un fichier
     def save_waitlist(self):
-        with open(self.WAITLIST_FILE, 'w') as f:
-            json.dump([user.id for user in self.waitlist], f)
-        logging.info("Liste d'attente sauvegardée.")
+        try:
+            with open(self.WAITLIST_FILE, 'w') as f:
+                json.dump([user.id for user in self.waitlist], f)
+            logging.info("Liste d'attente sauvegardée.")
+        except Exception as e:
+            logging.error(f"Erreur lors de la sauvegarde de la liste d'attente : {e}")
 
     # Fonction pour charger la liste d'attente depuis un fichier
     def load_waitlist(self):
@@ -33,6 +36,9 @@ class WaitlistCog(commands.Cog):
             with open(self.WAITLIST_FILE, 'w') as f:
                 json.dump([], f)
             logging.info("Fichier waitlist.json créé.")
+        except json.JSONDecodeError as e:
+            logging.error(f"Erreur de décodage JSON lors du chargement de la liste d'attente : {e}")
+            self.waitlist = []
 
     # Fonction pour vérifier les membres existants et leur envoyer un message de bienvenue
     async def check_existing_members(self):
@@ -50,11 +56,16 @@ class WaitlistCog(commands.Cog):
     @commands.Cog.listener()
     async def on_member_join(self, member):
         if member.id not in self.welcomed_users:
-            await member.send("Bienvenue! Cliquez sur le bouton ci-dessous pour vous inscrire à la liste d'attente.", components=[
-                discord.ui.Button(label="S'inscrire à la liste d'attente", custom_id="register_waitlist")
-            ])
-            self.welcomed_users.add(member.id)
-            logging.info(f"Message de bienvenue envoyé à {member.name}.")
+            try:
+                await member.send("Bienvenue! Cliquez sur le bouton ci-dessous pour vous inscrire à la liste d'attente.", components=[
+                    discord.ui.Button(label="S'inscrire à la liste d'attente", custom_id="register_waitlist")
+                ])
+                self.welcomed_users.add(member.id)
+                logging.info(f"Message de bienvenue envoyé à {member.name}.")
+            except discord.Forbidden:
+                logging.warning(f"Impossible d'envoyer un message privé à {member.name} - permissions insuffisantes.")
+            except discord.HTTPException as e:
+                logging.error(f"Erreur HTTP lors de l'envoi d'un message privé à {member.name} : {e}")
 
     @commands.Cog.listener()
     async def on_interaction(self, interaction):
@@ -73,35 +84,38 @@ class WaitlistCog(commands.Cog):
         if self.waitlist:
             user = self.waitlist.pop(0)
             self.save_waitlist()  # Sauvegarde de la liste d'attente mise à jour
-            guild = user.guild  # Assurez-vous que l'utilisateur appartient à un guild
-            role = discord.utils.get(guild.roles, name="Accès Groupe Facebook")
-            if role:
-                try:
-                    await user.add_roles(role)
-                    await self.send_private_message(user, role)  # Envoie du message privé après l'ajout du rôle
-                    logging.info(f"{user.name} a reçu le rôle 'Accès Groupe Facebook'.")
-                except discord.Forbidden:
-                    await user.send("Je n'ai pas les permissions nécessaires pour vous attribuer ce rôle.")
-                    logging.error(f"Permissions insuffisantes pour attribuer le rôle à {user.name}.")
-                except discord.HTTPException as e:
-                    await user.send(f"Une erreur s'est produite: {e}")
-                    logging.error(f"Erreur HTTP lors de l'attribution du rôle à {user.name}: {e}")
+            guild = discord.utils.get(self.bot.guilds, id=user.guild.id)  # Assurez-vous que l'utilisateur appartient toujours à un guild
+            if guild:
+                role = discord.utils.get(guild.roles, name="Accès Groupe Facebook")
+                if role:
+                    try:
+                        await user.add_roles(role)
+                        await self.send_private_message(user, role)  # Envoie du message privé après l'ajout du rôle
+                        logging.info(f"{user.name} a reçu le rôle 'Accès Groupe Facebook'.")
+                    except discord.Forbidden:
+                        await user.send("Je n'ai pas les permissions nécessaires pour vous attribuer ce rôle.")
+                        logging.error(f"Permissions insuffisantes pour attribuer le rôle à {user.name}.")
+                    except discord.HTTPException as e:
+                        await user.send(f"Une erreur s'est produite: {e}")
+                        logging.error(f"Erreur HTTP lors de l'attribution du rôle à {user.name}: {e}")
+            else:
+                logging.warning(f"L'utilisateur {user.name} n'appartient plus à un serveur.")
 
     async def send_private_message(self, member, role):
         try:
             message_content = (
                 "Hello ! 👋\n\n"
-                "J’ai le plaisir de t’annoncer que tu viens d’être ajouter dans le salon #groupe-reviews. ✅\n\n"
-                "À l’intérieur tu y trouveras plus de 30 groupes que j’utilise personnellement afin d’avoir accès à un maximum d’article.\n\n"
+                "J’ai le plaisir de t’annoncer que tu viens d’être ajouté dans le salon #groupe-reviews. ✅\n\n"
+                "À l’intérieur tu y trouveras plus de 30 groupes que j’utilise personnellement afin d’avoir accès à un maximum d’articles.\n\n"
                 "Je te laisse rejoindre les groupes en cliquant sur les liens 🔗\n\n"
                 "À bientôt, ✌️"
             )
             await member.send(message_content)
-            print(f"Message privé envoyé à {member.name}")
+            logging.info(f"Message privé envoyé à {member.name}")
         except discord.Forbidden:
-            print(f"Impossible d'envoyer un message privé à {member.name}")
+            logging.warning(f"Impossible d'envoyer un message privé à {member.name} - permissions insuffisantes.")
         except discord.HTTPException as e:
-            print(f"Erreur HTTP lors de l'envoi d'un message privé à {member.name}: {e}")
+            logging.error(f"Erreur HTTP lors de l'envoi d'un message privé à {member.name}: {e}")
 
     @give_access.before_loop
     async def before_give_access(self):

@@ -1,18 +1,22 @@
 import discord
-from discord.ext import commands, tasks
+from discord.ext import commands
 import os
-from dotenv import load_dotenv
 import json
+import logging
+from dotenv import load_dotenv
+
+# Configurer les logs pour mieux suivre ce qui se passe
+logging.basicConfig(level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
 # Charger les variables d'environnement depuis le fichier .env
 load_dotenv()
 
 # Récupérer le token Discord depuis les variables d'environnement
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
-ROLE_ID = os.getenv('ROLE_ID')
 
 if not DISCORD_TOKEN:
-    raise ValueError("Le token Discord n'est pas défini. Assurez-vous que la variable d'environnement 'DISCORD_TOKEN' est configurée correctement.")
+    logging.error("Le token Discord n'est pas défini. Assurez-vous que la variable d'environnement 'DISCORD_TOKEN' est configurée correctement.")
+    raise ValueError("Le token Discord n'est pas défini.")
 
 # Initialisation des intents du bot
 intents = discord.Intents.default()
@@ -24,68 +28,43 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 # Réinitialiser le fichier threads.json au démarrage
 def reset_threads_file():
-    with open('data/threads.json', 'w') as f:
-        json.dump({}, f)
-    print("Le fichier threads.json a été réinitialisé.")
+    try:
+        if not os.path.exists('data'):
+            os.makedirs('data')
+            logging.info("Le dossier 'data' a été créé car il n'existait pas.")
+
+        with open('data/threads.json', 'w') as f:
+            json.dump({}, f)
+        logging.info("Le fichier threads.json a été réinitialisé.")
+    except Exception as e:
+        logging.error(f"Erreur lors de la réinitialisation du fichier threads.json : {e}")
+        raise
 
 # Fonction asynchrone pour charger les cogs
 async def load_cogs():
-    COGS = ["openai_threads", "waitlist"]  # Mise à jour pour charger les bons cogs
+    COGS = ["openai_threads", "waitlist"]  # Liste des cogs à charger
     for cog in COGS:
         try:
             await bot.load_extension(f'cogs.{cog}')
-            print(f"Le cog {cog} a été chargé avec succès.")
+            logging.info(f"Le cog {cog} a été chargé avec succès.")
         except Exception as e:
-            print(f"Impossible de charger le cog {cog}. Erreur : {e}")
+            logging.error(f"Impossible de charger le cog {cog}. Erreur : {e}")
+            raise
 
-async def perform_role_check():
-    print("Début de la fonction perform_role_check")
-    role_id = int(ROLE_ID)
-    guild = bot.guilds[0]  # Supposons que le bot soit dans un seul serveur
-    print(f"Récupération du serveur: {guild.name}")
-    
-    role = guild.get_role(role_id)
-    if role is None:
-        print(f"Le rôle avec l'ID {ROLE_ID} n'a pas été trouvé.")
-        return
-
-    bot_member = guild.me
-    if role.position >= bot_member.top_role.position:
-        print("Le bot n'a pas les permissions nécessaires pour gérer ce rôle en raison de la hiérarchie des rôles.")
-        print(f"Assurez-vous que le rôle du bot ({bot_member.top_role.name}) est supérieur au rôle à attribuer ({role.name}).")
-        return
-
-    members = guild.members
-    print(f"Nombre total de membres: {len(members)}")
-
-    members_without_role = [member for member in members if role_id not in [r.id for r in member.roles]]
-    print(f"Nombre de membres sans le rôle: {len(members_without_role)}")
-
-    members_sorted = sorted(members_without_role, key=lambda m: m.joined_at)
-    print("Membres triés par date d'entrée")
-
-    members_to_grant_role = members_sorted[:2]
-    for member in members_to_grant_role:
-        try:
-            await member.add_roles(role)
-            print(f"Rôle ajouté à {member.name}")
-        except discord.errors.Forbidden:
-            print(f"Permission refusée lors de l'ajout du rôle à {member.name}")
-
-    print("Rôle ajouté aux membres sélectionnés")
-
-@tasks.loop(hours=24)
-async def check_and_grant_role():
-    await bot.wait_until_ready()
-    await perform_role_check()
-
-# Démarrage du bot
+# Fonction pour démarrer le bot
 @bot.event
 async def on_ready():
-    reset_threads_file()  # Réinitialiser le fichier threads.json au démarrage
-    await load_cogs()
-    print(f"{bot.user.name} est connecté et prêt.")
-    check_and_grant_role.start()  # Lancer la tâche planifiée
+    try:
+        reset_threads_file()  # Réinitialiser le fichier threads.json au démarrage
+        await load_cogs()  # Charger les cogs
+        logging.info(f"{bot.user.name} est connecté et prêt.")
+    except Exception as e:
+        logging.critical(f"Échec lors du démarrage du bot : {e}")
+        await bot.close()
 
+# Lancer le bot
 if __name__ == "__main__":
-    bot.run(DISCORD_TOKEN)
+    try:
+        bot.run(DISCORD_TOKEN)
+    except Exception as e:
+        logging.critical(f"Échec lors de l'exécution du bot : {e}")
