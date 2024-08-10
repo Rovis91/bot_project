@@ -5,66 +5,66 @@ import json
 import logging
 from dotenv import load_dotenv
 
-# Configurer les logs pour mieux suivre ce qui se passe
+# Configure logging for better traceability
 logging.basicConfig(level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
-# Charger les variables d'environnement depuis le fichier .env
+# Load environment variables from the .env file
 load_dotenv()
 
-# Récupérer le token Discord depuis les variables d'environnement
+# Get the Discord token from environment variables
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 
 if not DISCORD_TOKEN:
-    logging.error("Le token Discord n'est pas défini. Assurez-vous que la variable d'environnement 'DISCORD_TOKEN' est configurée correctement.")
-    raise ValueError("Le token Discord n'est pas défini.")
+    logging.error("Discord token is not defined. Make sure the 'DISCORD_TOKEN' environment variable is set correctly.")
+    raise ValueError("Discord token is not defined.")
 
-# Initialisation des intents du bot
+# Initialize bot intents
 intents = discord.Intents.default()
-intents.message_content = True  # Permet d'accéder au contenu des messages
-intents.members = True  # Permet d'accéder aux membres du serveur
+intents.message_content = True  # Allows access to message content
+intents.members = True  # Allows access to server members
 
-# Initialisation du bot
+# Initialize the bot
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-# Réinitialiser le fichier threads.json au démarrage
+# Reset the threads.json file at startup
 def reset_threads_file():
     try:
         if not os.path.exists('data'):
             os.makedirs('data')
-            logging.info("Le dossier 'data' a été créé car il n'existait pas.")
+            logging.info("The 'data' folder was created as it did not exist.")
 
         with open('data/threads.json', 'w') as f:
             json.dump({}, f)
-        logging.info("Le fichier threads.json a été réinitialisé.")
+        logging.info("The threads.json file has been reset.")
     except Exception as e:
-        logging.error(f"Erreur lors de la réinitialisation du fichier threads.json : {e}")
+        logging.error(f"Error resetting threads.json file: {e}")
         raise
 
-# Fonction asynchrone pour charger les cogs
+# Asynchronous function to load cogs
 async def load_cogs():
-    COGS = ["openai_threads", "waitlist"]  # Liste des cogs à charger
+    COGS = ["cogs.openai_threads", "cogs.waitlist", "cogs.faq_updater"]
     for cog in COGS:
         try:
-            await bot.load_extension(f'cogs.{cog}')
-            logging.info(f"Le cog {cog} a été chargé avec succès.")
+            await bot.load_extension(cog)
+            logging.info(f"The cog {cog} was successfully loaded.")
         except Exception as e:
-            logging.error(f"Impossible de charger le cog {cog}. Erreur : {e}")
+            logging.error(f"Unable to load cog {cog}. Error: {e}")
             raise
 
-# Fonction pour démarrer le bot
+# Function to start the bot
 @bot.event
 async def on_ready():
     try:
-        reset_threads_file()  # Réinitialiser le fichier threads.json au démarrage
-        await load_cogs()  # Charger les cogs
-        logging.info(f"{bot.user.name} est connecté et prêt.")
+        reset_threads_file()  # Reset the threads.json file at startup
+        await load_cogs()  # Load cogs
+        logging.info(f"{bot.user.name} is connected and ready.")
     except Exception as e:
-        logging.critical(f"Échec lors du démarrage du bot : {e}")
+        logging.critical(f"Failed to start the bot: {e}")
         await bot.close()
 
-# Lancer le bot
+# Run the bot
 if __name__ == "__main__":
     try:
         bot.run(DISCORD_TOKEN)
     except Exception as e:
-        logging.critical(f"Échec lors de l'exécution du bot : {e}")
+        logging.critical(f"Failed to run the bot: {e}")

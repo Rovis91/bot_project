@@ -1,0 +1,98 @@
+{
+	
+
+	"summary": "Récapitulatif des Règles et de la Marche à Suivre pour Tester des Produits sur Amazon",
+	"generalFunctioning": {
+		"actors": {
+			"tester": "Vous achetez et testez le produit.",
+			"intermediary": "Il vous fournit les mots-clés pour trouver le produit et gère la communication avec le vendeur.",
+			"seller": "Il rembourse le produit après que vous ayez laissé un commentaire positif."
+		},
+		"testingProcess": [
+			"Trouvez un produit via des groupes Facebook.",
+			"Commandez le produit sur Amazon en utilisant les mots-clés fournis par l’intermédiaire.",
+			"Laissez un commentaire positif après réception du produit.",
+			"Envoyez la preuve du commentaire à l’intermédiaire pour être remboursé par le vendeur."
+		]
+	},
+	"rulesToFollow": {
+		"keywordsUsage": "Ne jamais utiliser de liens directs pour trouver les produits sur Amazon. Utilisez uniquement les mots-clés fournis.",
+		"purchaseBehavior": [
+			"Scrollez et cliquez sur d'autres produits avant d'acheter celui que vous voulez tester pour éviter d'être détecté par l'algorithme d'Amazon.",
+			"N'ouvrez jamais directement le lien du produit."
+		],
+		"comments": [
+			"Attendez 7 à 10 jours après réception du produit avant de laisser un commentaire.",
+			"Les commentaires doivent être naturels, ni trop courts ni trop détaillés.",
+			"Mélangez les avis 5 étoiles avec des avis plus modérés pour paraître authentique."
+		],
+		"facebookGroups": [
+			"Utilisez un compte Facebook avec un historique pour rejoindre des groupes de testeurs.",
+			"Ne mentionnez jamais des plateformes externes comme Twitter ou d'autres réseaux pour expliquer comment vous avez trouvé le groupe. Prétendez toujours que c'est par bouche-à-oreille."
+		],
+		"reimbursement": [
+			"Ne demandez jamais de double remboursement. Un seul remboursement par achat.",
+			"Utilisez les coupons de réduction si disponibles et mentionnés par l’intermédiaire."
+		],
+		"amazonAccountSecurity": [
+			"Pas de review sur des produits achetés avec un code/carte cadeau.",
+			"Ne cliquez pas sur des liens pour laisser des commentaires.",
+			"Utilisez des captures d'écran pour prouver vos avis plutôt que des liens directs de votre profil.",
+			"Comportez-vous comme un acheteur normal (ajoutez des produits à votre liste de souhaits, laissez des avis variés, etc.).",
+			"Attendez un peu avant de laisser un commentaire après réception du produit.",
+			"Utilisez des noms différents pour vos comptes Facebook et Amazon.",
+			"Ne partagez vos informations personnelles qu'en privé.",
+			"Évitez les échanges d'avis utiles.",
+			"Mélangez les avis 5 étoiles avec des avis moins enthousiastes.",
+			"Ne testez pas de produits avec majoritairement de mauvais avis ou avec trop d'avis positifs quotidiens."
+		]
+	},
+	"practicalSteps": [{
+			"step": "Créer un compte Facebook et Discord",
+			"details": [
+				"Utilisez un ancien compte Facebook si possible pour rejoindre des groupes plus facilement.",
+				"Créez un compte Discord pour accéder au groupe d'entraide de la formation."
+			]
+		},
+		{
+			"step": "Créer un compte PayPal et Amazon",
+			"details": [
+				"Utilisez un compte Amazon existant avec des avis pour accéder à plus de produits."
+			]
+		},
+		{
+			"step": "Rejoindre des groupes de testeurs Amazon sur Facebook",
+			"details": [
+				"Rejoignez des groupes avec les mots-clés fournis.",
+				"Lisez et respectez les règles de chaque groupe."
+			]
+		},
+		{
+			"step": "Trouver et commander un produit",
+			"details": [
+				"Utilisez les mots-clés pour chercher le produit sur Amazon.",
+				"Faites valider le produit par l’intermédiaire avant de le commander."
+			]
+		},
+		{
+			"step": "Laisser un commentaire",
+			"details": [
+				"Remplissez les conditions du remboursement et attendez la validation d'Amazon.",
+				"Transmettez la validation à l’intermédiaire pour obtenir le remboursement."
+			]
+		},
+		{
+			"step": "Recommencer le Processus",
+			"details": [
+				"Après chaque remboursement, trouvez un nouveau produit et recommencez le processus à partir de l’étape 6."
+			]
+		}
+	],
+	"mistakesToAvoid": [
+		"Ne pas dépasser trois tests par semaine.",
+		"Ne pas commander plusieurs fois le même produit.",
+		"Ne pas demander de double remboursement.",
+		"Communication discrète avec l’intermédiaire."
+	],
+	"conclusion": "En suivant ces règles et étapes, vous pourrez tester des produits sur Amazon tout en protégeant votre compte et en évitant les bannissements."
+}
