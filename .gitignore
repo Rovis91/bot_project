@@ -1,4 +1,5 @@
 .env
 threads.json
 __pycache__
-vecto_store/
+vector_store/
+data/
