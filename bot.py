@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 # Configure logging for better traceability
 logging.basicConfig(level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
+
 # Load environment variables from the .env file
 load_dotenv()
 
