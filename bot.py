@@ -8,7 +8,6 @@ from dotenv import load_dotenv
 # Configure logging for better traceability
 logging.basicConfig(level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
-
 # Load environment variables from the .env file
 load_dotenv()
 
@@ -46,18 +45,29 @@ async def load_cogs():
     COGS = ["cogs.openai_threads", "cogs.waitlist", "cogs.faq_updater"]
     for cog in COGS:
         try:
+            logging.info(f"Attempting to load cog: {cog}")
             await bot.load_extension(cog)
             logging.info(f"The cog {cog} was successfully loaded.")
         except Exception as e:
             logging.error(f"Unable to load cog {cog}. Error: {e}")
             raise
 
+    # Appel explicite à update_faq après chargement des cogs
+    faq_updater_cog = bot.get_cog('FaqUpdater')
+    if faq_updater_cog:
+        await faq_updater_cog.update_faq()
+        logging.info("FAQ update process triggered successfully.")
+
 # Function to start the bot
 @bot.event
 async def on_ready():
     try:
         reset_threads_file()  # Reset the threads.json file at startup
+        logging.info("Threads file reset successfully.")
+        
         await load_cogs()  # Load cogs
+        logging.info("All cogs loaded successfully.")
+        
         logging.info(f"{bot.user.name} is connected and ready.")
     except Exception as e:
         logging.critical(f"Failed to start the bot: {e}")
@@ -66,6 +76,7 @@ async def on_ready():
 # Run the bot
 if __name__ == "__main__":
     try:
+        logging.info("Starting the bot...")
         bot.run(DISCORD_TOKEN)
     except Exception as e:
         logging.critical(f"Failed to run the bot: {e}")
