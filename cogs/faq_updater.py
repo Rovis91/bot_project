@@ -1,3 +1,36 @@
+"""
+FAQ Updater Cog for Discord Bot
+================================
+
+This module implements the `FaqUpdater` cog for a Discord bot, which handles the automatic extraction, backup, and update of a frequently asked questions (FAQ) JSON file from a Discord forum channel. 
+
+Main Features:
+--------------
+1. **FAQ Extraction**:
+   - Retrieves posts from a specified forum channel in Discord and extracts question-answer pairs from threads.
+   - Updates a local `faq.json` file with new entries while managing backups.
+
+2. **Backup Management**:
+   - Automatically creates backups of the FAQ file with timestamps.
+   - Retains the latest 5 backups and deletes older ones to manage storage.
+
+3. **OpenAI Vector Store Integration**:
+   - Uploads files from the `vector_store/` directory to OpenAI's API.
+   - Creates a new vector store and links it to the bot's assistant, replacing the old vector store.
+
+4. **Logging**:
+   - Detailed logging throughout the cog, including file operations, API interactions, and error handling.
+   - Integrates with the global logging configuration set in the main bot script.
+
+5. **Reset Threads**:
+   - Resets the `threads.json` file after successfully updating the vector store and linking it to the assistant.
+
+Usage:
+------
+- This cog is designed to be part of a larger Discord bot, and it should be loaded during the bot's startup.
+- Ensure that the necessary environment variables (`FORUM_ID`, `ASSISTANT_ID`, etc.) are properly configured.
+"""
+
 from discord.ext import commands
 import os
 import json
@@ -40,7 +73,6 @@ class FaqUpdater(commands.Cog):
             logging.info("No new posts found for FAQ update.")
 
     async def retrieve_new_forum_posts(self, forum_channel):
-        # Retrieve the ID of the last processed post
         last_post_id = self.get_last_processed_post_id()
         posts = []
 
@@ -83,7 +115,6 @@ class FaqUpdater(commands.Cog):
             if os.path.exists(faq_file_path):
                 os.rename(faq_file_path, backup_path)
                 logging.info(f"Backup created at {backup_path}")
-
                 self.manage_backups(backup_dir, "faq.json.*.bak", 5)
 
         except Exception as e:
@@ -122,7 +153,7 @@ class FaqUpdater(commands.Cog):
                 data = json.load(f)
                 return data.get("last_post_id")
         except (json.JSONDecodeError, IOError) as e:
-            logging.error(f"Failed to load last processed post ID: {e}")
+            logging.info(f"Failed to load last processed post ID: {e}")
             return None
 
     def update_last_processed_post(self, posts):
@@ -168,10 +199,9 @@ class FaqUpdater(commands.Cog):
     async def get_most_recent_vector_store(self):
         try:
             vector_stores = self.client.beta.vector_stores.list(limit=1, order="desc")
-            # Iterate over the SyncCursorPage object to get the most recent vector store
             for store in vector_stores:
-                logging.info(f"Most recent vector store ID: {store.id}")  # Accessed with dot notation
-                return store.id  # Accessed with dot notation
+                logging.info(f"Most recent vector store ID: {store.id}")
+                return store.id
             return None
         except Exception as e:
             logging.error(f"Failed to retrieve vector stores: {str(e)}")
@@ -181,7 +211,6 @@ class FaqUpdater(commands.Cog):
         file_ids = []
         try:
             for filename in os.listdir(directory):
-                # Skip backup files with the .bak extension
                 if filename.endswith(".bak"):
                     logging.info(f"Skipping backup file: {filename}")
                     continue
@@ -190,10 +219,10 @@ class FaqUpdater(commands.Cog):
                 with open(filepath, 'rb') as file:
                     uploaded_file = self.client.files.create(
                         file=file,
-                        purpose='assistants'  # Changed from 'file_search' to 'assistants'
+                        purpose='assistants'
                     )
-                    file_ids.append(uploaded_file.id)  # Accessed with dot notation
-                    logging.info(f"Uploaded file: {filename} with ID: {uploaded_file.id}")  # Accessed with dot notation
+                    file_ids.append(uploaded_file.id)
+                    logging.info(f"Uploaded file: {filename} with ID: {uploaded_file.id}")
         except Exception as e:
             logging.error(f"Failed to upload files: {str(e)}")
         return file_ids
@@ -204,8 +233,8 @@ class FaqUpdater(commands.Cog):
                 file_ids=file_ids,
                 name="New Vector Store"
             )
-            logging.info(f"Created new vector store with ID: {vector_store.id}")  # Accessed with dot notation
-            return vector_store.id  # Accessed with dot notation
+            logging.info(f"Created new vector store with ID: {vector_store.id}")
+            return vector_store.id
         except Exception as e:
             logging.error(f"Failed to create vector store: {str(e)}")
             return None

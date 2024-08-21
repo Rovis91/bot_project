@@ -1,3 +1,38 @@
+"""
+Waitlist Cog for Discord Bot
+=============================
+
+This module implements the `WaitlistCog` for managing a waitlist of users in a Discord bot. The bot assigns roles to users 
+who are on the waitlist and sends them welcome messages. It also periodically processes the waitlist to grant access to users 
+by assigning a specified role.
+
+Main Features:
+--------------
+1. **Waitlist Management**:
+   - Users are automatically added to a waitlist upon joining the server.
+   - The waitlist is saved to and loaded from a JSON file (`waitlist.json`).
+
+2. **Welcome Messages**:
+   - Sends welcome messages to new members, prompting them to join the waitlist.
+
+3. **Role Assignment**:
+   - Periodically grants access to users from the waitlist by assigning them a specific role (e.g., "Accès Groupe Facebook").
+   - Handles errors such as insufficient permissions when assigning roles.
+
+4. **Task Scheduling**:
+   - Schedules the `give_access` task to run twice a day to process the waitlist.
+
+5. **Logging**:
+   - Provides detailed logging for actions such as saving/loading the waitlist, sending messages, and assigning roles.
+   - Integrates with the global logging configuration set in the main bot script.
+
+Usage:
+------
+- This cog is designed to be part of a larger Discord bot, and it should be loaded during the bot's startup.
+- Ensure that the necessary environment variables and permissions are properly configured for the bot.
+
+"""
+
 import discord
 from discord.ext import commands, tasks
 import datetime
@@ -13,7 +48,6 @@ class WaitlistCog(commands.Cog):
         self.welcomed_users = set()
         self.load_waitlist()
 
-    # Fonction pour sauvegarder la liste d'attente dans un fichier
     def save_waitlist(self):
         try:
             with open(self.WAITLIST_FILE, 'w') as f:
@@ -22,7 +56,6 @@ class WaitlistCog(commands.Cog):
         except Exception as e:
             logging.error(f"Erreur lors de la sauvegarde de la liste d'attente : {e}")
 
-    # Fonction pour charger la liste d'attente depuis un fichier
     def load_waitlist(self):
         try:
             with open(self.WAITLIST_FILE, 'r') as f:
@@ -40,7 +73,6 @@ class WaitlistCog(commands.Cog):
             logging.error(f"Erreur de décodage JSON lors du chargement de la liste d'attente : {e}")
             self.waitlist = []
 
-    # Fonction pour vérifier les membres existants et leur envoyer un message de bienvenue
     async def check_existing_members(self):
         for guild in self.bot.guilds:
             for member in guild.members:

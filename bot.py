@@ -4,9 +4,22 @@ import os
 import json
 import logging
 from dotenv import load_dotenv
+from logging.handlers import RotatingFileHandler
 
-# Configure logging for better traceability
+# Configure logging to capture INFO level and higher messages
 logging.basicConfig(level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
+
+# Create a rotating file handler to save logs to a file
+log_file = "bot_logs.log"
+file_handler = RotatingFileHandler(log_file, maxBytes=5*1024*1024, backupCount=5)  # 5MB per file, with 5 backups
+file_handler.setLevel(logging.INFO)
+
+# Create a formatter and set it for the file handler
+formatter = logging.Formatter('%(asctime)s:%(levelname)s:%(message)s')
+file_handler.setFormatter(formatter)
+
+# Add the file handler to the root logger
+logging.getLogger().addHandler(file_handler)
 
 # Load environment variables from the .env file
 load_dotenv()
@@ -52,7 +65,7 @@ async def load_cogs():
             logging.error(f"Unable to load cog {cog}. Error: {e}")
             raise
 
-    # Appel explicite à update_faq après chargement des cogs
+    # Explicitly call update_faq after loading the cogs
     faq_updater_cog = bot.get_cog('FaqUpdater')
     if faq_updater_cog:
         await faq_updater_cog.update_faq()

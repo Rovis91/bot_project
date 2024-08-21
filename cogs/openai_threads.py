@@ -1,3 +1,38 @@
+"""
+OpenAI Threads Cog for Discord Bot
+==================================
+
+This module implements the `OpenAIThreadsCog` for a Discord bot, enabling the bot to interact with the OpenAI API 
+for handling threaded conversations with an AI assistant. 
+
+Main Features:
+--------------
+1. **Thread Management**:
+   - Automatically creates threads in the OpenAI API for handling ongoing conversations.
+   - Stores thread IDs locally in `threads.json` for future reference and conversation continuation.
+
+2. **Channel Restriction**:
+   - Restricts bot responses to certain channels, which are defined in the `.env` file using the `ALLOWED_CHANNELS` variable.
+   - If no channels are specified, the bot will respond in all channels by default.
+
+3. **Message Handling**:
+   - Splits long messages into smaller parts to comply with Discord's message length limits.
+   - Filters out specific content (e.g., references) from the assistant's responses.
+
+4. **Logging**:
+   - Provides detailed logging for message creation, thread management, API interactions, and error handling.
+   - Integrates with the global logging configuration defined in the main bot script.
+
+5. **Retry Mechanism**:
+   - Implements a retry mechanism for API calls, attempting to fetch results up to three times in case of failure.
+
+Usage:
+------
+- This cog is designed to be part of a larger Discord bot and should be loaded during the bot's startup.
+- Ensure that the necessary environment variables (`OPENAI_API_KEY`, `OPENAI_ORG_ID`, `ASSISTANT_ID`, etc.) are properly configured.
+
+"""
+
 import discord
 from discord.ext import commands
 import requests
@@ -13,6 +48,14 @@ class OpenAIThreadsCog(commands.Cog):
         self.OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
         self.OPENAI_ORG_ID = os.getenv('OPENAI_ORG_ID')
         self.ASSISTANT_ID = os.getenv('ASSISTANT_ID')
+
+        # Load allowed channels from .env and convert to a list of integers
+        allowed_channels_env = os.getenv('ALLOWED_CHANNELS')
+        if allowed_channels_env:
+            self.allowed_channels = [int(channel_id) for channel_id in allowed_channels_env.split(',')]
+        else:
+            self.allowed_channels = None  # If None, allow all channels by default
+
         self.threads = self.load_threads()
 
     def load_threads(self):
@@ -115,6 +158,11 @@ class OpenAIThreadsCog(commands.Cog):
     @commands.command(name='q')
     async def ask_question(self, ctx, *, question):
         channel_id = str(ctx.channel.id)
+
+        # Check if the bot is allowed to respond in this channel
+        if self.allowed_channels is not None and ctx.channel.id not in self.allowed_channels:
+            logging.info(f"Message ignored in channel {ctx.channel.id} (not in allowed channels).")
+            return
 
         if channel_id not in self.threads:
             thread_response = self.create_thread(channel_id, question)
