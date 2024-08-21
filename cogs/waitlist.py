@@ -3,8 +3,7 @@ Waitlist Cog for Discord Bot
 =============================
 
 This module implements the `WaitlistCog` for managing a waitlist of users in a Discord bot. The bot assigns roles to users 
-who are on the waitlist and sends them welcome messages. It also periodically processes the waitlist to grant access to users 
-by assigning a specified role.
+on the waitlist and sends them welcome messages. It processes the waitlist during bot startup, assigning a specified role.
 
 Main Features:
 --------------
@@ -12,30 +11,15 @@ Main Features:
    - Users are automatically added to a waitlist upon joining the server.
    - The waitlist is saved to and loaded from a JSON file (`waitlist.json`).
 
-2. **Welcome Messages**:
-   - Sends welcome messages to new members, prompting them to join the waitlist.
+2. **Role Assignment**:
+   - Assigns roles to users from the waitlist when the bot starts.
 
-3. **Role Assignment**:
-   - Periodically grants access to users from the waitlist by assigning them a specific role (e.g., "Accès Groupe Facebook").
-   - Handles errors such as insufficient permissions when assigning roles.
-
-4. **Task Scheduling**:
-   - Schedules the `give_access` task to run twice a day to process the waitlist.
-
-5. **Logging**:
-   - Provides detailed logging for actions such as saving/loading the waitlist, sending messages, and assigning roles.
-   - Integrates with the global logging configuration set in the main bot script.
-
-Usage:
-------
-- This cog is designed to be part of a larger Discord bot, and it should be loaded during the bot's startup.
-- Ensure that the necessary environment variables and permissions are properly configured for the bot.
-
+3. **Logging**:
+   - Provides detailed logging for actions such as saving/loading the waitlist, assigning roles, and sending messages.
 """
 
 import discord
-from discord.ext import commands, tasks
-import datetime
+from discord.ext import commands
 import json
 import logging
 import os
@@ -46,94 +30,70 @@ class WaitlistCog(commands.Cog):
         self.WAITLIST_FILE = 'data/waitlist.json'
         self.waitlist = []
         self.welcomed_users = set()
+
+        # Load the waitlist from the JSON file at startup
         self.load_waitlist()
 
     def save_waitlist(self):
+        """Save the current waitlist to a JSON file."""
         try:
             with open(self.WAITLIST_FILE, 'w') as f:
-                json.dump([user.id for user in self.waitlist], f)
-            logging.info("Liste d'attente sauvegardée.")
+                json.dump(self.waitlist, f)
+            logging.info("Waitlist saved successfully.")
         except Exception as e:
-            logging.error(f"Erreur lors de la sauvegarde de la liste d'attente : {e}")
+            logging.error(f"Error saving waitlist: {e}")
 
     def load_waitlist(self):
+        """Load the waitlist from a JSON file."""
         try:
-            with open(self.WAITLIST_FILE, 'r') as f:
-                user_ids = json.load(f)
-                for user_id in user_ids:
-                    user = self.bot.get_user(user_id)
-                    if user:
-                        self.waitlist.append(user)
-                logging.info("Liste d'attente chargée.")
-        except FileNotFoundError:
-            with open(self.WAITLIST_FILE, 'w') as f:
-                json.dump([], f)
-            logging.info("Fichier waitlist.json créé.")
+            if os.path.exists(self.WAITLIST_FILE):
+                with open(self.WAITLIST_FILE, 'r') as f:
+                    self.waitlist = json.load(f)
+                logging.info("Waitlist loaded successfully.")
+            else:
+                # Create the file if it doesn't exist
+                with open(self.WAITLIST_FILE, 'w') as f:
+                    json.dump([], f)
+                logging.info("Waitlist file created.")
         except json.JSONDecodeError as e:
-            logging.error(f"Erreur de décodage JSON lors du chargement de la liste d'attente : {e}")
+            logging.error(f"JSON decode error while loading waitlist: {e}")
             self.waitlist = []
 
+    async def process_waitlist(self):
+        """Process the waitlist and assign roles to users when the bot starts."""
+        await self.check_existing_members()
+        await self.assign_roles_to_waitlist()
+
     async def check_existing_members(self):
+        """Check existing members and update the waitlist and roles."""
         for guild in self.bot.guilds:
             for member in guild.members:
                 if member.id not in self.welcomed_users and not any(role.name == "Accès Groupe Facebook" for role in member.roles):
                     await self.on_member_join(member)
+        logging.info("Checked existing members and updated the waitlist.")
 
-    @commands.Cog.listener()
-    async def on_ready(self):
-        self.load_waitlist()
-        await self.check_existing_members()
-        logging.info(f'{self.bot.user} has connected to Discord!')
+    async def assign_roles_to_waitlist(self):
+        """Assign roles to users on the waitlist when the bot starts."""
+        for guild in self.bot.guilds:
+            role = discord.utils.get(guild.roles, name="Accès Groupe Facebook")
+            if not role:
+                logging.error("Role 'Accès Groupe Facebook' not found in the server.")
+                continue
 
-    @commands.Cog.listener()
-    async def on_member_join(self, member):
-        if member.id not in self.welcomed_users:
-            try:
-                await member.send("Bienvenue! Cliquez sur le bouton ci-dessous pour vous inscrire à la liste d'attente.", components=[
-                    discord.ui.Button(label="S'inscrire à la liste d'attente", custom_id="register_waitlist")
-                ])
-                self.welcomed_users.add(member.id)
-                logging.info(f"Message de bienvenue envoyé à {member.name}.")
-            except discord.Forbidden:
-                logging.warning(f"Impossible d'envoyer un message privé à {member.name} - permissions insuffisantes.")
-            except discord.HTTPException as e:
-                logging.error(f"Erreur HTTP lors de l'envoi d'un message privé à {member.name} : {e}")
-
-    @commands.Cog.listener()
-    async def on_interaction(self, interaction):
-        if interaction.type == discord.InteractionType.component and interaction.custom_id == "register_waitlist":
-            user = interaction.user
-            if user not in self.waitlist:
-                self.waitlist.append(user)
-                self.save_waitlist()  # Sauvegarde de la liste d'attente mise à jour
-                await interaction.response.send_message(f"{user.mention}, vous avez été ajouté à la liste d'attente.", ephemeral=True)
-                logging.info(f"{user.name} a été ajouté à la liste d'attente.")
-            else:
-                await interaction.response.send_message("Vous êtes déjà dans la liste d'attente.", ephemeral=True)
-
-    @tasks.loop(hours=12)
-    async def give_access(self):
-        if self.waitlist:
-            user = self.waitlist.pop(0)
-            self.save_waitlist()  # Sauvegarde de la liste d'attente mise à jour
-            guild = discord.utils.get(self.bot.guilds, id=user.guild.id)  # Assurez-vous que l'utilisateur appartient toujours à un guild
-            if guild:
-                role = discord.utils.get(guild.roles, name="Accès Groupe Facebook")
-                if role:
+            for user_id in self.waitlist:
+                member = guild.get_member(user_id)
+                if member and role not in member.roles:
                     try:
-                        await user.add_roles(role)
-                        await self.send_private_message(user, role)  # Envoie du message privé après l'ajout du rôle
-                        logging.info(f"{user.name} a reçu le rôle 'Accès Groupe Facebook'.")
+                        await member.add_roles(role)
+                        await self.send_private_message(member)
+                        logging.info(f"Assigned role to {member.name}.")
                     except discord.Forbidden:
-                        await user.send("Je n'ai pas les permissions nécessaires pour vous attribuer ce rôle.")
-                        logging.error(f"Permissions insuffisantes pour attribuer le rôle à {user.name}.")
+                        logging.error(f"Permission denied: cannot assign role to {member.name}.")
                     except discord.HTTPException as e:
-                        await user.send(f"Une erreur s'est produite: {e}")
-                        logging.error(f"Erreur HTTP lors de l'attribution du rôle à {user.name}: {e}")
-            else:
-                logging.warning(f"L'utilisateur {user.name} n'appartient plus à un serveur.")
+                        logging.error(f"HTTP error while assigning role to {member.name}: {e}")
 
-    async def send_private_message(self, member, role):
+    async def send_private_message(self, member):
+        """Send a private message to the user after assigning the role."""
         try:
             message_content = (
                 "Hello ! 👋\n\n"
@@ -143,21 +103,26 @@ class WaitlistCog(commands.Cog):
                 "À bientôt, ✌️"
             )
             await member.send(message_content)
-            logging.info(f"Message privé envoyé à {member.name}")
+            logging.info(f"Private message sent to {member.name}.")
         except discord.Forbidden:
-            logging.warning(f"Impossible d'envoyer un message privé à {member.name} - permissions insuffisantes.")
+            logging.warning(f"Cannot send private message to {member.name} - permissions insufficient.")
         except discord.HTTPException as e:
-            logging.error(f"Erreur HTTP lors de l'envoi d'un message privé à {member.name}: {e}")
+            logging.error(f"HTTP error while sending private message to {member.name}: {e}")
 
-    @give_access.before_loop
-    async def before_give_access(self):
-        await self.bot.wait_until_ready()
-        now = datetime.datetime.now()
-        next_run = now.replace(hour=7 if now.hour < 7 else 19, minute=0, second=0, microsecond=0)
-        if now.hour >= 19:
-            next_run += datetime.timedelta(days=1)
-        await discord.utils.sleep_until(next_run)
-        logging.info("La tâche planifiée give_access a été initialisée.")
+    @commands.Cog.listener()
+    async def on_ready(self):
+        """Event listener for when the bot is ready."""
+        logging.info(f'{self.bot.user} has connected to Discord!')
+
+    @commands.Cog.listener()
+    async def on_member_join(self, member):
+        """Event listener for when a new member joins."""
+        if member.id not in self.waitlist:
+            self.waitlist.append(member.id)
+            self.save_waitlist()
+            logging.info(f"Added {member.name} to the waitlist.")
+            await self.assign_roles_to_waitlist()
 
 async def setup(bot):
+    """Setup function for the cog."""
     await bot.add_cog(WaitlistCog(bot))

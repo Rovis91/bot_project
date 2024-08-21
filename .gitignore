@@ -1,4 +1,5 @@
 .env
+.log
 threads.json
 __pycache__
 vector_store/

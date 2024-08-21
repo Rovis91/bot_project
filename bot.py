@@ -53,7 +53,6 @@ def reset_threads_file():
         logging.error(f"Error resetting threads.json file: {e}")
         raise
 
-# Asynchronous function to load cogs
 async def load_cogs():
     COGS = ["cogs.openai_threads", "cogs.waitlist", "cogs.faq_updater"]
     for cog in COGS:
@@ -70,6 +69,12 @@ async def load_cogs():
     if faq_updater_cog:
         await faq_updater_cog.update_faq()
         logging.info("FAQ update process triggered successfully.")
+
+    # Explicitly call process_waitlist after loading the cogs
+    waitlist_cog = bot.get_cog('WaitlistCog')
+    if waitlist_cog:
+        await waitlist_cog.process_waitlist()
+        logging.info("Waitlist processing triggered successfully.")
 
 # Function to start the bot
 @bot.event

@@ -1,0 +1,531 @@
+2024-08-21 12:43:30,585:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-21 12:43:30,586:INFO:Starting the bot...
+2024-08-21 12:43:30,589:INFO:logging in using static token
+2024-08-21 12:43:31,658:INFO:Shard ID None has connected to Gateway (Session ID: 1a309ddf5cc0bb8eef6345ef31391859).
+2024-08-21 12:43:33,671:INFO:The threads.json file has been reset.
+2024-08-21 12:43:33,672:INFO:Threads file reset successfully.
+2024-08-21 12:43:33,672:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-21 12:43:34,705:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-21 12:43:34,706:INFO:Attempting to load cog: cogs.waitlist
+2024-08-21 12:43:34,716:INFO:Liste d'attente chargée.
+2024-08-21 12:43:34,720:INFO:The cog cogs.waitlist was successfully loaded.
+2024-08-21 12:43:34,720:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-21 12:43:36,974:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 12:43:36,974:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 12:43:36,975:INFO:Found 0 new posts.
+2024-08-21 12:43:36,975:INFO:Found 0 new posts.
+2024-08-21 12:43:36,976:INFO:No new posts found for FAQ update.
+2024-08-21 12:43:36,976:INFO:No new posts found for FAQ update.
+2024-08-21 12:43:36,976:INFO:FAQ update process triggered successfully.
+2024-08-21 12:43:36,976:INFO:FAQ update process triggered successfully.
+2024-08-21 12:43:36,977:INFO:All cogs loaded successfully.
+2024-08-21 12:43:36,977:INFO:All cogs loaded successfully.
+2024-08-21 12:43:36,978:INFO:AVA is connected and ready.
+2024-08-21 12:43:36,978:INFO:AVA is connected and ready.
+2024-08-21 12:44:43,065:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-21 12:44:43,066:INFO:Starting the bot...
+2024-08-21 12:44:43,068:INFO:logging in using static token
+2024-08-21 12:44:44,086:INFO:Shard ID None has connected to Gateway (Session ID: f4a88c116060c9ce236b692249b777b6).
+2024-08-21 12:44:46,104:INFO:The threads.json file has been reset.
+2024-08-21 12:44:46,105:INFO:Threads file reset successfully.
+2024-08-21 12:44:46,106:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-21 12:44:46,840:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-21 12:44:46,841:INFO:Attempting to load cog: cogs.waitlist
+2024-08-21 12:44:46,845:INFO:Liste d'attente chargée.
+2024-08-21 12:44:46,846:INFO:The cog cogs.waitlist was successfully loaded.
+2024-08-21 12:44:46,847:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-21 12:44:48,516:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 12:44:48,516:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 12:44:48,517:INFO:Found 0 new posts.
+2024-08-21 12:44:48,517:INFO:Found 0 new posts.
+2024-08-21 12:44:48,519:INFO:No new posts found for FAQ update.
+2024-08-21 12:44:48,519:INFO:No new posts found for FAQ update.
+2024-08-21 12:44:48,520:INFO:FAQ update process triggered successfully.
+2024-08-21 12:44:48,520:INFO:FAQ update process triggered successfully.
+2024-08-21 12:44:48,521:INFO:All cogs loaded successfully.
+2024-08-21 12:44:48,521:INFO:All cogs loaded successfully.
+2024-08-21 12:44:48,522:INFO:AVA is connected and ready.
+2024-08-21 12:44:48,522:INFO:AVA is connected and ready.
+2024-08-21 12:46:42,041:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-21 12:46:42,042:INFO:Starting the bot...
+2024-08-21 12:46:42,044:INFO:logging in using static token
+2024-08-21 12:46:44,509:INFO:Shard ID None has connected to Gateway (Session ID: 578bbd2d56441b29aa765578cd299164).
+2024-08-21 12:46:46,517:INFO:The threads.json file has been reset.
+2024-08-21 12:46:46,519:INFO:Threads file reset successfully.
+2024-08-21 12:46:46,520:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-21 12:46:47,298:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-21 12:46:47,299:INFO:Attempting to load cog: cogs.waitlist
+2024-08-21 12:46:47,305:INFO:Liste d'attente chargée.
+2024-08-21 12:46:47,305:INFO:The cog cogs.waitlist was successfully loaded.
+2024-08-21 12:46:47,307:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-21 12:46:48,909:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 12:46:48,909:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 12:46:48,911:INFO:Found 0 new posts.
+2024-08-21 12:46:48,911:INFO:Found 0 new posts.
+2024-08-21 12:46:48,912:INFO:No new posts found for FAQ update.
+2024-08-21 12:46:48,912:INFO:No new posts found for FAQ update.
+2024-08-21 12:46:48,913:INFO:FAQ update process triggered successfully.
+2024-08-21 12:46:48,913:INFO:FAQ update process triggered successfully.
+2024-08-21 12:46:48,914:INFO:All cogs loaded successfully.
+2024-08-21 12:46:48,914:INFO:All cogs loaded successfully.
+2024-08-21 12:46:48,915:INFO:AVA is connected and ready.
+2024-08-21 12:46:48,915:INFO:AVA is connected and ready.
+2024-08-21 12:50:52,321:INFO:Shard ID None has successfully RESUMED session 578bbd2d56441b29aa765578cd299164.
+2024-08-21 12:50:52,321:INFO:Shard ID None has successfully RESUMED session 578bbd2d56441b29aa765578cd299164.
+2024-08-21 12:56:58,784:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-21 12:56:58,785:INFO:Starting the bot...
+2024-08-21 12:56:58,787:INFO:logging in using static token
+2024-08-21 12:56:59,849:INFO:Shard ID None has connected to Gateway (Session ID: 31d079e81e747b788a9f010bca5edb46).
+2024-08-21 12:57:01,872:INFO:The threads.json file has been reset.
+2024-08-21 12:57:01,875:INFO:Threads file reset successfully.
+2024-08-21 12:57:01,877:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-21 12:57:02,629:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-21 12:57:02,630:INFO:Attempting to load cog: cogs.waitlist
+2024-08-21 12:57:02,640:INFO:Liste d'attente chargée.
+2024-08-21 12:57:02,642:INFO:The cog cogs.waitlist was successfully loaded.
+2024-08-21 12:57:02,645:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-21 12:57:04,230:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 12:57:04,230:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 12:57:04,232:INFO:Found 0 new posts.
+2024-08-21 12:57:04,232:INFO:Found 0 new posts.
+2024-08-21 12:57:04,234:INFO:No new posts found for FAQ update.
+2024-08-21 12:57:04,234:INFO:No new posts found for FAQ update.
+2024-08-21 12:57:04,235:INFO:FAQ update process triggered successfully.
+2024-08-21 12:57:04,235:INFO:FAQ update process triggered successfully.
+2024-08-21 12:57:04,236:INFO:All cogs loaded successfully.
+2024-08-21 12:57:04,236:INFO:All cogs loaded successfully.
+2024-08-21 12:57:04,237:INFO:AVA is connected and ready.
+2024-08-21 12:57:04,237:INFO:AVA is connected and ready.
+2024-08-21 13:00:51,539:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-21 13:00:51,540:INFO:Starting the bot...
+2024-08-21 13:00:51,543:INFO:logging in using static token
+2024-08-21 13:00:52,404:INFO:Shard ID None has connected to Gateway (Session ID: 4e72916255cea613b5dc1cf00bfa0e0b).
+2024-08-21 13:00:54,407:INFO:The threads.json file has been reset.
+2024-08-21 13:00:54,409:INFO:Threads file reset successfully.
+2024-08-21 13:00:54,410:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-21 13:00:55,164:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-21 13:00:55,164:INFO:Attempting to load cog: cogs.waitlist
+2024-08-21 13:00:55,169:INFO:Liste d'attente chargée.
+2024-08-21 13:00:55,170:INFO:The cog cogs.waitlist was successfully loaded.
+2024-08-21 13:00:55,175:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-21 13:00:56,840:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:00:56,840:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:00:56,842:INFO:Found 0 new posts.
+2024-08-21 13:00:56,842:INFO:Found 0 new posts.
+2024-08-21 13:00:56,843:INFO:No new posts found for FAQ update.
+2024-08-21 13:00:56,843:INFO:No new posts found for FAQ update.
+2024-08-21 13:00:56,845:INFO:FAQ update process triggered successfully.
+2024-08-21 13:00:56,845:INFO:FAQ update process triggered successfully.
+2024-08-21 13:00:56,848:CRITICAL:Failed to start the bot: Messageable.send() got an unexpected keyword argument 'components'
+2024-08-21 13:00:56,848:CRITICAL:Failed to start the bot: Messageable.send() got an unexpected keyword argument 'components'
+2024-08-21 13:02:53,667:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-21 13:02:53,669:INFO:Starting the bot...
+2024-08-21 13:02:53,670:INFO:logging in using static token
+2024-08-21 13:02:54,782:INFO:Shard ID None has connected to Gateway (Session ID: aa7db8b86d779c36e384d3fe9f2c114c).
+2024-08-21 13:02:56,809:INFO:The threads.json file has been reset.
+2024-08-21 13:02:56,810:INFO:Threads file reset successfully.
+2024-08-21 13:02:56,811:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-21 13:02:57,550:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-21 13:02:57,550:INFO:Attempting to load cog: cogs.waitlist
+2024-08-21 13:02:57,555:INFO:Liste d'attente chargée.
+2024-08-21 13:02:57,556:INFO:The cog cogs.waitlist was successfully loaded.
+2024-08-21 13:02:57,557:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-21 13:02:59,074:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:02:59,074:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:02:59,077:INFO:Found 0 new posts.
+2024-08-21 13:02:59,077:INFO:Found 0 new posts.
+2024-08-21 13:02:59,078:INFO:No new posts found for FAQ update.
+2024-08-21 13:02:59,078:INFO:No new posts found for FAQ update.
+2024-08-21 13:02:59,079:INFO:FAQ update process triggered successfully.
+2024-08-21 13:02:59,079:INFO:FAQ update process triggered successfully.
+2024-08-21 13:02:59,081:CRITICAL:Failed to start the bot: Messageable.send() got an unexpected keyword argument 'components'
+2024-08-21 13:02:59,081:CRITICAL:Failed to start the bot: Messageable.send() got an unexpected keyword argument 'components'
+2024-08-21 13:04:37,131:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-21 13:04:37,132:INFO:Starting the bot...
+2024-08-21 13:04:37,134:INFO:logging in using static token
+2024-08-21 13:04:38,171:INFO:Shard ID None has connected to Gateway (Session ID: 5a1b1d65565cb4bc66b0f99a967160b7).
+2024-08-21 13:04:40,177:INFO:The threads.json file has been reset.
+2024-08-21 13:04:40,179:INFO:Threads file reset successfully.
+2024-08-21 13:04:40,181:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-21 13:04:40,901:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-21 13:04:40,902:INFO:Attempting to load cog: cogs.waitlist
+2024-08-21 13:04:40,908:INFO:Liste d'attente chargée.
+2024-08-21 13:04:40,910:INFO:The cog cogs.waitlist was successfully loaded.
+2024-08-21 13:04:40,911:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-21 13:04:42,426:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:04:42,426:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:04:42,430:INFO:Found 0 new posts.
+2024-08-21 13:04:42,430:INFO:Found 0 new posts.
+2024-08-21 13:04:42,431:INFO:No new posts found for FAQ update.
+2024-08-21 13:04:42,431:INFO:No new posts found for FAQ update.
+2024-08-21 13:04:42,432:INFO:FAQ update process triggered successfully.
+2024-08-21 13:04:42,432:INFO:FAQ update process triggered successfully.
+2024-08-21 13:04:42,434:CRITICAL:Failed to start the bot: Messageable.send() got an unexpected keyword argument 'components'
+2024-08-21 13:04:42,434:CRITICAL:Failed to start the bot: Messageable.send() got an unexpected keyword argument 'components'
+2024-08-21 13:05:01,725:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-21 13:05:01,726:INFO:Starting the bot...
+2024-08-21 13:05:01,729:INFO:logging in using static token
+2024-08-21 13:05:02,894:INFO:Shard ID None has connected to Gateway (Session ID: 8bbe922f2fb6828e301aa21c3499c333).
+2024-08-21 13:05:04,892:INFO:The threads.json file has been reset.
+2024-08-21 13:05:04,892:INFO:Threads file reset successfully.
+2024-08-21 13:05:04,893:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-21 13:05:05,796:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-21 13:05:05,797:INFO:Attempting to load cog: cogs.waitlist
+2024-08-21 13:05:05,800:INFO:Liste d'attente chargée.
+2024-08-21 13:05:05,801:INFO:The cog cogs.waitlist was successfully loaded.
+2024-08-21 13:05:05,802:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-21 13:05:07,629:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:05:07,629:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:05:07,631:INFO:Found 0 new posts.
+2024-08-21 13:05:07,631:INFO:Found 0 new posts.
+2024-08-21 13:05:07,633:INFO:No new posts found for FAQ update.
+2024-08-21 13:05:07,633:INFO:No new posts found for FAQ update.
+2024-08-21 13:05:07,634:INFO:FAQ update process triggered successfully.
+2024-08-21 13:05:07,634:INFO:FAQ update process triggered successfully.
+2024-08-21 13:05:07,635:INFO:All cogs loaded successfully.
+2024-08-21 13:05:07,635:INFO:All cogs loaded successfully.
+2024-08-21 13:05:07,636:INFO:AVA is connected and ready.
+2024-08-21 13:05:07,636:INFO:AVA is connected and ready.
+2024-08-21 13:05:51,197:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-21 13:05:51,199:INFO:Starting the bot...
+2024-08-21 13:05:51,201:INFO:logging in using static token
+2024-08-21 13:05:52,253:INFO:Shard ID None has connected to Gateway (Session ID: 01b7d0d7d252c1a9d668bd3ae94bd2a6).
+2024-08-21 13:05:54,245:INFO:The threads.json file has been reset.
+2024-08-21 13:05:54,246:INFO:Threads file reset successfully.
+2024-08-21 13:05:54,247:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-21 13:05:55,054:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-21 13:05:55,055:INFO:Attempting to load cog: cogs.waitlist
+2024-08-21 13:05:55,059:INFO:Liste d'attente chargée.
+2024-08-21 13:05:55,063:INFO:The cog cogs.waitlist was successfully loaded.
+2024-08-21 13:05:55,065:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-21 13:05:56,788:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:05:56,788:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:05:56,789:INFO:Found 0 new posts.
+2024-08-21 13:05:56,789:INFO:Found 0 new posts.
+2024-08-21 13:05:56,790:INFO:No new posts found for FAQ update.
+2024-08-21 13:05:56,790:INFO:No new posts found for FAQ update.
+2024-08-21 13:05:56,792:INFO:FAQ update process triggered successfully.
+2024-08-21 13:05:56,792:INFO:FAQ update process triggered successfully.
+2024-08-21 13:05:56,793:CRITICAL:Failed to start the bot: Messageable.send() got an unexpected keyword argument 'components'
+2024-08-21 13:05:56,793:CRITICAL:Failed to start the bot: Messageable.send() got an unexpected keyword argument 'components'
+2024-08-21 13:14:36,996:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-21 13:14:36,998:INFO:Starting the bot...
+2024-08-21 13:14:37,002:INFO:logging in using static token
+2024-08-21 13:14:38,004:INFO:Shard ID None has connected to Gateway (Session ID: 326b1aa824389fabb10aff00efeefd3b).
+2024-08-21 13:14:40,027:INFO:The threads.json file has been reset.
+2024-08-21 13:14:40,028:INFO:Threads file reset successfully.
+2024-08-21 13:14:40,029:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-21 13:14:40,778:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-21 13:14:40,779:INFO:Attempting to load cog: cogs.waitlist
+2024-08-21 13:14:40,788:INFO:Waitlist loaded successfully.
+2024-08-21 13:14:40,789:INFO:The cog cogs.waitlist was successfully loaded.
+2024-08-21 13:14:40,789:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-21 13:14:42,355:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:14:42,355:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:14:42,357:INFO:Found 0 new posts.
+2024-08-21 13:14:42,357:INFO:Found 0 new posts.
+2024-08-21 13:14:42,358:INFO:No new posts found for FAQ update.
+2024-08-21 13:14:42,358:INFO:No new posts found for FAQ update.
+2024-08-21 13:14:42,359:INFO:FAQ update process triggered successfully.
+2024-08-21 13:14:42,359:INFO:FAQ update process triggered successfully.
+2024-08-21 13:14:42,360:CRITICAL:Failed to start the bot: 'WaitlistCog' object has no attribute 'check_existing_members'
+2024-08-21 13:14:42,360:CRITICAL:Failed to start the bot: 'WaitlistCog' object has no attribute 'check_existing_members'
+2024-08-21 13:16:14,248:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-21 13:16:14,250:INFO:Starting the bot...
+2024-08-21 13:16:14,253:INFO:logging in using static token
+2024-08-21 13:16:16,016:INFO:Shard ID None has connected to Gateway (Session ID: 9f7d5b29bd0c26c0a09898fa8b7eb604).
+2024-08-21 13:16:18,020:INFO:The threads.json file has been reset.
+2024-08-21 13:16:18,022:INFO:Threads file reset successfully.
+2024-08-21 13:16:18,023:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-21 13:16:18,830:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-21 13:16:18,830:INFO:Attempting to load cog: cogs.waitlist
+2024-08-21 13:16:18,842:INFO:Waitlist loaded successfully.
+2024-08-21 13:16:18,843:INFO:The cog cogs.waitlist was successfully loaded.
+2024-08-21 13:16:18,844:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-21 13:16:20,467:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:16:20,467:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:16:20,469:INFO:Found 0 new posts.
+2024-08-21 13:16:20,469:INFO:Found 0 new posts.
+2024-08-21 13:16:20,470:INFO:No new posts found for FAQ update.
+2024-08-21 13:16:20,470:INFO:No new posts found for FAQ update.
+2024-08-21 13:16:20,471:INFO:FAQ update process triggered successfully.
+2024-08-21 13:16:20,471:INFO:FAQ update process triggered successfully.
+2024-08-21 13:16:20,472:CRITICAL:Failed to start the bot: 'dict' object has no attribute 'append'
+2024-08-21 13:16:20,472:CRITICAL:Failed to start the bot: 'dict' object has no attribute 'append'
+2024-08-21 13:18:21,514:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-21 13:18:21,516:INFO:Starting the bot...
+2024-08-21 13:18:21,517:INFO:logging in using static token
+2024-08-21 13:18:22,523:INFO:Shard ID None has connected to Gateway (Session ID: 4f18163c8abb4e1382905c498a2ba5bf).
+2024-08-21 13:18:24,567:INFO:The threads.json file has been reset.
+2024-08-21 13:18:24,568:INFO:Threads file reset successfully.
+2024-08-21 13:18:24,570:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-21 13:18:25,369:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-21 13:18:25,370:INFO:Attempting to load cog: cogs.waitlist
+2024-08-21 13:18:25,379:ERROR:Waitlist data is not a list. Resetting to an empty list.
+2024-08-21 13:18:25,380:INFO:Waitlist loaded successfully.
+2024-08-21 13:18:25,381:INFO:The cog cogs.waitlist was successfully loaded.
+2024-08-21 13:18:25,381:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-21 13:18:27,410:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:18:27,410:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:18:27,412:INFO:Found 0 new posts.
+2024-08-21 13:18:27,412:INFO:Found 0 new posts.
+2024-08-21 13:18:27,413:INFO:No new posts found for FAQ update.
+2024-08-21 13:18:27,413:INFO:No new posts found for FAQ update.
+2024-08-21 13:18:27,414:INFO:FAQ update process triggered successfully.
+2024-08-21 13:18:27,414:INFO:FAQ update process triggered successfully.
+2024-08-21 13:18:27,416:INFO:Waitlist saved successfully.
+2024-08-21 13:18:27,416:INFO:Waitlist saved successfully.
+2024-08-21 13:18:27,417:INFO:Added AVA to the waitlist.
+2024-08-21 13:18:27,417:INFO:Added AVA to the waitlist.
+2024-08-21 13:18:27,621:CRITICAL:Failed to start the bot: 'ClientUser' object has no attribute 'create_dm'
+2024-08-21 13:18:27,621:CRITICAL:Failed to start the bot: 'ClientUser' object has no attribute 'create_dm'
+2024-08-21 13:19:10,543:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-21 13:19:10,544:INFO:Starting the bot...
+2024-08-21 13:19:10,546:INFO:logging in using static token
+2024-08-21 13:19:11,770:INFO:Shard ID None has connected to Gateway (Session ID: 967aace44285d91e18759ef93a92bc5c).
+2024-08-21 13:19:13,815:INFO:The threads.json file has been reset.
+2024-08-21 13:19:13,817:INFO:Threads file reset successfully.
+2024-08-21 13:19:13,819:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-21 13:19:14,608:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-21 13:19:14,609:INFO:Attempting to load cog: cogs.waitlist
+2024-08-21 13:19:14,613:INFO:Waitlist loaded successfully.
+2024-08-21 13:19:14,614:INFO:The cog cogs.waitlist was successfully loaded.
+2024-08-21 13:19:14,614:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-21 13:19:16,444:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:19:16,444:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:19:16,445:INFO:Found 0 new posts.
+2024-08-21 13:19:16,445:INFO:Found 0 new posts.
+2024-08-21 13:19:16,446:INFO:No new posts found for FAQ update.
+2024-08-21 13:19:16,446:INFO:No new posts found for FAQ update.
+2024-08-21 13:19:16,447:INFO:FAQ update process triggered successfully.
+2024-08-21 13:19:16,447:INFO:FAQ update process triggered successfully.
+2024-08-21 13:19:16,449:INFO:Waitlist saved successfully.
+2024-08-21 13:19:16,449:INFO:Waitlist saved successfully.
+2024-08-21 13:19:16,450:INFO:Added rovis91 to the waitlist.
+2024-08-21 13:19:16,450:INFO:Added rovis91 to the waitlist.
+2024-08-21 13:19:17,204:INFO:Private message sent to rovis91.
+2024-08-21 13:19:17,204:INFO:Private message sent to rovis91.
+2024-08-21 13:19:17,205:INFO:Assigned role to rovis91.
+2024-08-21 13:19:17,205:INFO:Assigned role to rovis91.
+2024-08-21 13:19:17,208:INFO:Waitlist saved successfully.
+2024-08-21 13:19:17,208:INFO:Waitlist saved successfully.
+2024-08-21 13:19:17,209:INFO:Added ipa0_ to the waitlist.
+2024-08-21 13:19:17,209:INFO:Added ipa0_ to the waitlist.
+2024-08-21 13:19:19,306:INFO:Private message sent to ipa0_.
+2024-08-21 13:19:19,306:INFO:Private message sent to ipa0_.
+2024-08-21 13:19:19,318:INFO:Assigned role to ipa0_.
+2024-08-21 13:19:19,318:INFO:Assigned role to ipa0_.
+2024-08-21 13:19:19,324:INFO:Checked existing members and updated the waitlist.
+2024-08-21 13:19:19,324:INFO:Checked existing members and updated the waitlist.
+2024-08-21 13:19:19,328:INFO:Waitlist check process triggered successfully.
+2024-08-21 13:19:19,328:INFO:Waitlist check process triggered successfully.
+2024-08-21 13:19:19,331:CRITICAL:Failed to start the bot: 'WaitlistCog' object has no attribute 'give_access'
+2024-08-21 13:19:19,331:CRITICAL:Failed to start the bot: 'WaitlistCog' object has no attribute 'give_access'
+2024-08-21 13:37:47,481:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-21 13:37:47,482:INFO:Starting the bot...
+2024-08-21 13:37:47,484:INFO:logging in using static token
+2024-08-21 13:37:48,527:INFO:Shard ID None has connected to Gateway (Session ID: 2899754ff842c633175a6148453e018d).
+2024-08-21 13:37:50,551:INFO:The threads.json file has been reset.
+2024-08-21 13:37:50,552:INFO:Threads file reset successfully.
+2024-08-21 13:37:50,553:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-21 13:37:51,374:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-21 13:37:51,374:INFO:Attempting to load cog: cogs.waitlist
+2024-08-21 13:37:51,382:INFO:Waitlist loaded successfully.
+2024-08-21 13:37:51,383:INFO:The cog cogs.waitlist was successfully loaded.
+2024-08-21 13:37:51,384:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-21 13:37:53,018:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:37:53,018:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:37:53,019:INFO:Found 0 new posts.
+2024-08-21 13:37:53,019:INFO:Found 0 new posts.
+2024-08-21 13:37:53,020:INFO:No new posts found for FAQ update.
+2024-08-21 13:37:53,020:INFO:No new posts found for FAQ update.
+2024-08-21 13:37:53,021:INFO:FAQ update process triggered successfully.
+2024-08-21 13:37:53,021:INFO:FAQ update process triggered successfully.
+2024-08-21 13:37:53,022:INFO:Checked existing members and updated the waitlist.
+2024-08-21 13:37:53,022:INFO:Checked existing members and updated the waitlist.
+2024-08-21 13:37:53,026:INFO:Waitlist check process triggered successfully.
+2024-08-21 13:37:53,026:INFO:Waitlist check process triggered successfully.
+2024-08-21 13:37:53,028:INFO:Waitlist access task started successfully.
+2024-08-21 13:37:53,028:INFO:Waitlist access task started successfully.
+2024-08-21 13:37:53,029:INFO:All cogs loaded successfully.
+2024-08-21 13:37:53,029:INFO:All cogs loaded successfully.
+2024-08-21 13:37:53,030:INFO:AVA is connected and ready.
+2024-08-21 13:37:53,030:INFO:AVA is connected and ready.
+2024-08-21 13:37:53,031:INFO:Starting the give_access task.
+2024-08-21 13:37:53,031:INFO:Starting the give_access task.
+2024-08-21 13:37:53,278:ERROR:Unhandled exception in internal background task 'give_access'.
+Traceback (most recent call last):
+  File "C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\tasks\__init__.py", line 241, in _loop
+    await self.coro(*args, **kwargs)
+  File "c:\Users\antoi\Documents\Netechoppe\INEEDMONEY\bot_project\cogs\waitlist.py", line 130, in give_access
+    await self.assign_roles_to_waitlist()
+  File "c:\Users\antoi\Documents\Netechoppe\INEEDMONEY\bot_project\cogs\waitlist.py", line 87, in assign_roles_to_waitlist
+    await self.send_private_message(member)
+  File "c:\Users\antoi\Documents\Netechoppe\INEEDMONEY\bot_project\cogs\waitlist.py", line 104, in send_private_message
+    await member.send(message_content)
+  File "C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1571, in send
+    channel = await self._get_channel()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\member.py", line 449, in _get_channel
+    ch = await self.create_dm()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\member.py", line 236, in general
+    return await getattr(self._user, x)(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ClientUser' object has no attribute 'create_dm'. Did you mean: 'created_at'?
+2024-08-21 13:37:53,278:ERROR:Unhandled exception in internal background task 'give_access'.
+Traceback (most recent call last):
+  File "C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\tasks\__init__.py", line 241, in _loop
+    await self.coro(*args, **kwargs)
+  File "c:\Users\antoi\Documents\Netechoppe\INEEDMONEY\bot_project\cogs\waitlist.py", line 130, in give_access
+    await self.assign_roles_to_waitlist()
+  File "c:\Users\antoi\Documents\Netechoppe\INEEDMONEY\bot_project\cogs\waitlist.py", line 87, in assign_roles_to_waitlist
+    await self.send_private_message(member)
+  File "c:\Users\antoi\Documents\Netechoppe\INEEDMONEY\bot_project\cogs\waitlist.py", line 104, in send_private_message
+    await member.send(message_content)
+  File "C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1571, in send
+    channel = await self._get_channel()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\member.py", line 449, in _get_channel
+    ch = await self.create_dm()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\member.py", line 236, in general
+    return await getattr(self._user, x)(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ClientUser' object has no attribute 'create_dm'. Did you mean: 'created_at'?
+2024-08-21 13:46:35,204:ERROR:Task exception was never retrieved
+future: <Task finished name='discord-ext-tasks: WaitlistCog.give_access' coro=<Loop._loop() done, defined at C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\tasks\__init__.py:202> exception=AttributeError("'ClientUser' object has no attribute 'create_dm'")>
+Traceback (most recent call last):
+  File "C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\tasks\__init__.py", line 266, in _loop
+    raise exc
+  File "C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\tasks\__init__.py", line 241, in _loop
+    await self.coro(*args, **kwargs)
+  File "c:\Users\antoi\Documents\Netechoppe\INEEDMONEY\bot_project\cogs\waitlist.py", line 130, in give_access
+  File "c:\Users\antoi\Documents\Netechoppe\INEEDMONEY\bot_project\cogs\waitlist.py", line 87, in assign_roles_to_waitlist
+    await member.add_roles(role)
+  File "c:\Users\antoi\Documents\Netechoppe\INEEDMONEY\bot_project\cogs\waitlist.py", line 104, in send_private_message
+    )
+  File "C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1571, in send
+    channel = await self._get_channel()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\member.py", line 449, in _get_channel
+    ch = await self.create_dm()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\member.py", line 236, in general
+    return await getattr(self._user, x)(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ClientUser' object has no attribute 'create_dm'. Did you mean: 'created_at'?
+2024-08-21 13:46:35,204:ERROR:Task exception was never retrieved
+future: <Task finished name='discord-ext-tasks: WaitlistCog.give_access' coro=<Loop._loop() done, defined at C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\tasks\__init__.py:202> exception=AttributeError("'ClientUser' object has no attribute 'create_dm'")>
+Traceback (most recent call last):
+  File "C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\tasks\__init__.py", line 266, in _loop
+    raise exc
+  File "C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\tasks\__init__.py", line 241, in _loop
+    await self.coro(*args, **kwargs)
+  File "c:\Users\antoi\Documents\Netechoppe\INEEDMONEY\bot_project\cogs\waitlist.py", line 130, in give_access
+  File "c:\Users\antoi\Documents\Netechoppe\INEEDMONEY\bot_project\cogs\waitlist.py", line 87, in assign_roles_to_waitlist
+    await member.add_roles(role)
+  File "c:\Users\antoi\Documents\Netechoppe\INEEDMONEY\bot_project\cogs\waitlist.py", line 104, in send_private_message
+    )
+  File "C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1571, in send
+    channel = await self._get_channel()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\member.py", line 449, in _get_channel
+    ch = await self.create_dm()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\antoi\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\member.py", line 236, in general
+    return await getattr(self._user, x)(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ClientUser' object has no attribute 'create_dm'. Did you mean: 'created_at'?
+2024-08-21 13:46:38,257:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-21 13:46:38,258:INFO:Starting the bot...
+2024-08-21 13:46:38,260:INFO:logging in using static token
+2024-08-21 13:46:39,399:INFO:Shard ID None has connected to Gateway (Session ID: 303c61104ef3ff7ea60a050a77a7a165).
+2024-08-21 13:46:41,463:INFO:The threads.json file has been reset.
+2024-08-21 13:46:41,469:INFO:Threads file reset successfully.
+2024-08-21 13:46:41,471:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-21 13:46:42,434:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-21 13:46:42,435:INFO:Attempting to load cog: cogs.waitlist
+2024-08-21 13:46:42,442:INFO:Waitlist loaded successfully.
+2024-08-21 13:46:42,442:INFO:The cog cogs.waitlist was successfully loaded.
+2024-08-21 13:46:42,443:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-21 13:46:43,999:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:46:43,999:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:46:44,001:INFO:Found 0 new posts.
+2024-08-21 13:46:44,001:INFO:Found 0 new posts.
+2024-08-21 13:46:44,002:INFO:No new posts found for FAQ update.
+2024-08-21 13:46:44,002:INFO:No new posts found for FAQ update.
+2024-08-21 13:46:44,003:INFO:FAQ update process triggered successfully.
+2024-08-21 13:46:44,003:INFO:FAQ update process triggered successfully.
+2024-08-21 13:46:44,004:INFO:Checked existing members and updated the waitlist.
+2024-08-21 13:46:44,004:INFO:Checked existing members and updated the waitlist.
+2024-08-21 13:46:44,005:INFO:Waitlist processing triggered successfully.
+2024-08-21 13:46:44,005:INFO:Waitlist processing triggered successfully.
+2024-08-21 13:46:44,006:INFO:All cogs loaded successfully.
+2024-08-21 13:46:44,006:INFO:All cogs loaded successfully.
+2024-08-21 13:46:44,007:INFO:AVA is connected and ready.
+2024-08-21 13:46:44,007:INFO:AVA is connected and ready.
+2024-08-21 13:47:01,630:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-21 13:47:01,632:INFO:Starting the bot...
+2024-08-21 13:47:01,634:INFO:logging in using static token
+2024-08-21 13:47:02,799:INFO:Shard ID None has connected to Gateway (Session ID: e1a69167076d8f89818b42f7f764e0dd).
+2024-08-21 13:47:04,809:INFO:The threads.json file has been reset.
+2024-08-21 13:47:04,810:INFO:Threads file reset successfully.
+2024-08-21 13:47:04,810:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-21 13:47:05,544:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-21 13:47:05,545:INFO:Attempting to load cog: cogs.waitlist
+2024-08-21 13:47:05,548:INFO:Waitlist loaded successfully.
+2024-08-21 13:47:05,548:INFO:The cog cogs.waitlist was successfully loaded.
+2024-08-21 13:47:05,549:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-21 13:47:07,179:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:47:07,179:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:47:07,181:INFO:Found 0 new posts.
+2024-08-21 13:47:07,181:INFO:Found 0 new posts.
+2024-08-21 13:47:07,182:INFO:No new posts found for FAQ update.
+2024-08-21 13:47:07,182:INFO:No new posts found for FAQ update.
+2024-08-21 13:47:07,183:INFO:FAQ update process triggered successfully.
+2024-08-21 13:47:07,183:INFO:FAQ update process triggered successfully.
+2024-08-21 13:47:07,185:INFO:Checked existing members and updated the waitlist.
+2024-08-21 13:47:07,185:INFO:Checked existing members and updated the waitlist.
+2024-08-21 13:47:07,879:INFO:Private message sent to rovis91.
+2024-08-21 13:47:07,879:INFO:Private message sent to rovis91.
+2024-08-21 13:47:07,880:INFO:Assigned role to rovis91.
+2024-08-21 13:47:07,880:INFO:Assigned role to rovis91.
+2024-08-21 13:47:07,881:INFO:Waitlist processing triggered successfully.
+2024-08-21 13:47:07,881:INFO:Waitlist processing triggered successfully.
+2024-08-21 13:47:07,883:INFO:All cogs loaded successfully.
+2024-08-21 13:47:07,883:INFO:All cogs loaded successfully.
+2024-08-21 13:47:07,884:INFO:AVA is connected and ready.
+2024-08-21 13:47:07,884:INFO:AVA is connected and ready.
+2024-08-21 13:47:45,040:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-21 13:47:45,041:INFO:Starting the bot...
+2024-08-21 13:47:45,044:INFO:logging in using static token
+2024-08-21 13:47:45,932:INFO:Shard ID None has connected to Gateway (Session ID: 08beb1a462fe4f38a48ceb27a7fd15c4).
+2024-08-21 13:47:47,950:INFO:The threads.json file has been reset.
+2024-08-21 13:47:47,954:INFO:Threads file reset successfully.
+2024-08-21 13:47:47,956:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-21 13:47:48,780:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-21 13:47:48,780:INFO:Attempting to load cog: cogs.waitlist
+2024-08-21 13:47:48,783:INFO:Waitlist loaded successfully.
+2024-08-21 13:47:48,784:INFO:The cog cogs.waitlist was successfully loaded.
+2024-08-21 13:47:48,785:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-21 13:47:50,724:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:47:50,724:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-21 13:47:50,726:INFO:Found 0 new posts.
+2024-08-21 13:47:50,726:INFO:Found 0 new posts.
+2024-08-21 13:47:50,727:INFO:No new posts found for FAQ update.
+2024-08-21 13:47:50,727:INFO:No new posts found for FAQ update.
+2024-08-21 13:47:50,728:INFO:FAQ update process triggered successfully.
+2024-08-21 13:47:50,728:INFO:FAQ update process triggered successfully.
+2024-08-21 13:47:50,729:INFO:Checked existing members and updated the waitlist.
+2024-08-21 13:47:50,729:INFO:Checked existing members and updated the waitlist.
+2024-08-21 13:47:51,455:INFO:Private message sent to rovis91.
+2024-08-21 13:47:51,455:INFO:Private message sent to rovis91.
+2024-08-21 13:47:51,456:INFO:Assigned role to rovis91.
+2024-08-21 13:47:51,456:INFO:Assigned role to rovis91.
+2024-08-21 13:47:51,458:INFO:Waitlist processing triggered successfully.
+2024-08-21 13:47:51,458:INFO:Waitlist processing triggered successfully.
+2024-08-21 13:47:51,458:INFO:All cogs loaded successfully.
+2024-08-21 13:47:51,458:INFO:All cogs loaded successfully.
+2024-08-21 13:47:51,459:INFO:AVA is connected and ready.
+2024-08-21 13:47:51,459:INFO:AVA is connected and ready.
