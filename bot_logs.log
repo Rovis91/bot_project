@@ -529,3 +529,141 @@ AttributeError: 'ClientUser' object has no attribute 'create_dm'. Did you mean: 
 2024-08-21 13:47:51,458:INFO:All cogs loaded successfully.
 2024-08-21 13:47:51,459:INFO:AVA is connected and ready.
 2024-08-21 13:47:51,459:INFO:AVA is connected and ready.
+2024-08-27 11:33:58,260:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-27 11:33:58,261:INFO:Starting the bot...
+2024-08-27 11:33:58,263:INFO:logging in using static token
+2024-08-27 11:33:59,203:INFO:Shard ID None has connected to Gateway (Session ID: 51bba89cc343907744d44501016d1298).
+2024-08-27 11:34:01,226:INFO:The threads.json file has been reset.
+2024-08-27 11:34:01,227:INFO:Threads file reset successfully.
+2024-08-27 11:34:01,228:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-27 11:34:01,997:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-27 11:34:01,997:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-27 11:34:03,833:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-27 11:34:03,833:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-27 11:34:03,834:ERROR:Forum channel not found. Please check the FORUM_ID.
+2024-08-27 11:34:03,834:ERROR:Forum channel not found. Please check the FORUM_ID.
+2024-08-27 11:34:03,834:INFO:FAQ update process triggered successfully.
+2024-08-27 11:34:03,834:INFO:FAQ update process triggered successfully.
+2024-08-27 11:34:03,834:INFO:All cogs loaded successfully.
+2024-08-27 11:34:03,834:INFO:All cogs loaded successfully.
+2024-08-27 11:34:03,835:INFO:AVA is connected and ready.
+2024-08-27 11:34:03,835:INFO:AVA is connected and ready.
+2024-08-27 11:34:56,737:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-27 11:34:56,738:INFO:Starting the bot...
+2024-08-27 11:34:56,740:INFO:logging in using static token
+2024-08-27 11:34:57,816:INFO:Shard ID None has connected to Gateway (Session ID: a79fe883783b7d6b9082de279af2e7ef).
+2024-08-27 11:34:59,858:INFO:The threads.json file has been reset.
+2024-08-27 11:34:59,858:INFO:Threads file reset successfully.
+2024-08-27 11:34:59,859:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-27 11:35:00,498:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-27 11:35:00,500:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-27 11:35:02,090:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-27 11:35:02,090:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-27 11:35:02,091:ERROR:Forum channel not found. Please check the FORUM_ID.
+2024-08-27 11:35:02,091:ERROR:Forum channel not found. Please check the FORUM_ID.
+2024-08-27 11:35:02,092:INFO:FAQ update process triggered successfully.
+2024-08-27 11:35:02,092:INFO:FAQ update process triggered successfully.
+2024-08-27 11:35:02,092:INFO:All cogs loaded successfully.
+2024-08-27 11:35:02,092:INFO:All cogs loaded successfully.
+2024-08-27 11:35:02,093:INFO:AVA is connected and ready.
+2024-08-27 11:35:02,093:INFO:AVA is connected and ready.
+2024-08-27 11:37:01,704:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-27 11:37:01,705:INFO:Starting the bot...
+2024-08-27 11:37:01,706:INFO:logging in using static token
+2024-08-27 11:37:02,719:INFO:Shard ID None has connected to Gateway (Session ID: 5220fe1d3b5ec55f712a6d3b23902e69).
+2024-08-27 11:37:04,758:INFO:The threads.json file has been reset.
+2024-08-27 11:37:04,759:INFO:Threads file reset successfully.
+2024-08-27 11:37:04,759:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-27 11:37:05,404:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-27 11:37:05,405:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-27 11:37:06,810:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-27 11:37:06,810:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-27 11:37:06,811:ERROR:Forum channel not found. Please check the FORUM_ID.
+2024-08-27 11:37:06,811:ERROR:Forum channel not found. Please check the FORUM_ID.
+2024-08-27 11:37:06,811:INFO:FAQ update process triggered successfully.
+2024-08-27 11:37:06,811:INFO:FAQ update process triggered successfully.
+2024-08-27 11:37:06,811:INFO:All cogs loaded successfully.
+2024-08-27 11:37:06,811:INFO:All cogs loaded successfully.
+2024-08-27 11:37:06,812:INFO:AVA is connected and ready.
+2024-08-27 11:37:06,812:INFO:AVA is connected and ready.
+2024-08-27 11:38:33,364:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-08-27 11:38:33,365:INFO:Starting the bot...
+2024-08-27 11:38:33,366:INFO:logging in using static token
+2024-08-27 11:38:34,446:INFO:Shard ID None has connected to Gateway (Session ID: bf8d62cc30ac30b4ef10b705eca227f9).
+2024-08-27 11:38:36,488:INFO:The threads.json file has been reset.
+2024-08-27 11:38:36,489:INFO:Threads file reset successfully.
+2024-08-27 11:38:36,491:INFO:Attempting to load cog: cogs.openai_threads
+2024-08-27 11:38:37,179:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-08-27 11:38:37,180:INFO:Attempting to load cog: cogs.faq_updater
+2024-08-27 11:38:38,696:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-27 11:38:38,696:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-08-27 11:38:38,696:INFO:Last processed post ID: 1273302498072989787
+2024-08-27 11:38:38,696:INFO:Last processed post ID: 1273302498072989787
+2024-08-27 11:38:38,697:INFO:Processing thread C'est quoi le no-review ?
+2024-08-27 11:38:38,697:INFO:Processing thread C'est quoi le no-review ?
+2024-08-27 11:38:38,895:INFO:Found 1 new posts.
+2024-08-27 11:38:38,895:INFO:Found 1 new posts.
+2024-08-27 11:38:38,895:INFO:Detected FAQ Entry - Question: C'est quoi le no-review ?, Answer: le no review est le fait de commander un produit, et d’avoir le remboursement sans mettre d’avis, juste une commande. Les vendeurs ont juste besoin de commande pour augmenter leurs chiffre du nombre de commande, il te demanderont seulement de leurs envoyer une photo en priver du produit pour etre sur que tu la bien commandé.
+2024-08-27 11:38:38,895:INFO:Detected FAQ Entry - Question: C'est quoi le no-review ?, Answer: le no review est le fait de commander un produit, et d’avoir le remboursement sans mettre d’avis, juste une commande. Les vendeurs ont juste besoin de commande pour augmenter leurs chiffre du nombre de commande, il te demanderont seulement de leurs envoyer une photo en priver du produit pour etre sur que tu la bien commandé.
+2024-08-27 11:38:38,901:INFO:Backup created at vector_store/faq.json.20240827_113838.bak
+2024-08-27 11:38:38,901:INFO:Backup created at vector_store/faq.json.20240827_113838.bak
+2024-08-27 11:38:38,902:INFO:Deleted old backup: vector_store\faq.json.20240820_182847.bak
+2024-08-27 11:38:38,902:INFO:Deleted old backup: vector_store\faq.json.20240820_182847.bak
+2024-08-27 11:38:38,913:INFO:FAQ file updated successfully.
+2024-08-27 11:38:38,913:INFO:FAQ file updated successfully.
+2024-08-27 11:38:38,915:INFO:Last processed post ID updated to 1277911821592035429.
+2024-08-27 11:38:38,915:INFO:Last processed post ID updated to 1277911821592035429.
+2024-08-27 11:38:38,915:INFO:Added 1 new entries to the FAQ.
+2024-08-27 11:38:38,915:INFO:Added 1 new entries to the FAQ.
+2024-08-27 11:38:39,488:INFO:HTTP Request: GET https://api.openai.com/v1/vector_stores?limit=1&order=desc "HTTP/1.1 200 OK"
+2024-08-27 11:38:39,488:INFO:HTTP Request: GET https://api.openai.com/v1/vector_stores?limit=1&order=desc "HTTP/1.1 200 OK"
+2024-08-27 11:38:39,490:INFO:Most recent vector store ID: vs_ctyMKYOeBeW03RFfIC1V1ub3
+2024-08-27 11:38:39,490:INFO:Most recent vector store ID: vs_ctyMKYOeBeW03RFfIC1V1ub3
+2024-08-27 11:38:40,514:INFO:HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-08-27 11:38:40,514:INFO:HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-08-27 11:38:40,516:INFO:Uploaded file: faq.json with ID: file-PveIlFu8gPHqcqTZC80ThuQ0
+2024-08-27 11:38:40,516:INFO:Uploaded file: faq.json with ID: file-PveIlFu8gPHqcqTZC80ThuQ0
+2024-08-27 11:38:40,517:INFO:Skipping backup file: faq.json.20240820_183326.bak
+2024-08-27 11:38:40,517:INFO:Skipping backup file: faq.json.20240820_183326.bak
+2024-08-27 11:38:40,517:INFO:Skipping backup file: faq.json.20240820_183943.bak
+2024-08-27 11:38:40,517:INFO:Skipping backup file: faq.json.20240820_183943.bak
+2024-08-27 11:38:40,518:INFO:Skipping backup file: faq.json.20240820_184346.bak
+2024-08-27 11:38:40,518:INFO:Skipping backup file: faq.json.20240820_184346.bak
+2024-08-27 11:38:40,519:INFO:Skipping backup file: faq.json.20240821_111445.bak
+2024-08-27 11:38:40,519:INFO:Skipping backup file: faq.json.20240821_111445.bak
+2024-08-27 11:38:40,519:INFO:Skipping backup file: faq.json.20240827_113838.bak
+2024-08-27 11:38:40,519:INFO:Skipping backup file: faq.json.20240827_113838.bak
+2024-08-27 11:38:41,435:INFO:HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-08-27 11:38:41,435:INFO:HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-08-27 11:38:41,436:INFO:Uploaded file: forma.json with ID: file-yRDkftVhsd5KuLfaTUTk016e
+2024-08-27 11:38:41,436:INFO:Uploaded file: forma.json with ID: file-yRDkftVhsd5KuLfaTUTk016e
+2024-08-27 11:38:42,198:INFO:HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-08-27 11:38:42,198:INFO:HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-08-27 11:38:42,200:INFO:Uploaded file: plan.json with ID: file-sZHgfqOxFuJ0AlG2TppXAJIE
+2024-08-27 11:38:42,200:INFO:Uploaded file: plan.json with ID: file-sZHgfqOxFuJ0AlG2TppXAJIE
+2024-08-27 11:38:42,866:INFO:HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-08-27 11:38:42,866:INFO:HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-08-27 11:38:42,870:INFO:Uploaded file: regles.json with ID: file-SkO044tg6ujLqe4G5yoNqrCf
+2024-08-27 11:38:42,870:INFO:Uploaded file: regles.json with ID: file-SkO044tg6ujLqe4G5yoNqrCf
+2024-08-27 11:38:43,508:INFO:HTTP Request: POST https://api.openai.com/v1/vector_stores "HTTP/1.1 200 OK"
+2024-08-27 11:38:43,508:INFO:HTTP Request: POST https://api.openai.com/v1/vector_stores "HTTP/1.1 200 OK"
+2024-08-27 11:38:43,509:INFO:Created new vector store with ID: vs_zQNCylURvlrNu2lmKyK4E20R
+2024-08-27 11:38:43,509:INFO:Created new vector store with ID: vs_zQNCylURvlrNu2lmKyK4E20R
+2024-08-27 11:38:44,494:INFO:HTTP Request: DELETE https://api.openai.com/v1/vector_stores/vs_ctyMKYOeBeW03RFfIC1V1ub3 "HTTP/1.1 200 OK"
+2024-08-27 11:38:44,494:INFO:HTTP Request: DELETE https://api.openai.com/v1/vector_stores/vs_ctyMKYOeBeW03RFfIC1V1ub3 "HTTP/1.1 200 OK"
+2024-08-27 11:38:44,499:INFO:Deleted old vector store with ID: vs_ctyMKYOeBeW03RFfIC1V1ub3
+2024-08-27 11:38:44,499:INFO:Deleted old vector store with ID: vs_ctyMKYOeBeW03RFfIC1V1ub3
+2024-08-27 11:38:45,002:INFO:HTTP Request: POST https://api.openai.com/v1/assistants/asst_ujXDBVQQTU6XFopESTBVkHCX "HTTP/1.1 200 OK"
+2024-08-27 11:38:45,002:INFO:HTTP Request: POST https://api.openai.com/v1/assistants/asst_ujXDBVQQTU6XFopESTBVkHCX "HTTP/1.1 200 OK"
+2024-08-27 11:38:45,027:INFO:Linked new vector store to assistant: asst_ujXDBVQQTU6XFopESTBVkHCX
+2024-08-27 11:38:45,027:INFO:Linked new vector store to assistant: asst_ujXDBVQQTU6XFopESTBVkHCX
+2024-08-27 11:38:45,029:INFO:The threads.json file has been reset.
+2024-08-27 11:38:45,029:INFO:The threads.json file has been reset.
+2024-08-27 11:38:45,030:INFO:Vector store updated and assistant linked successfully.
+2024-08-27 11:38:45,030:INFO:Vector store updated and assistant linked successfully.
+2024-08-27 11:38:45,031:INFO:FAQ update process triggered successfully.
+2024-08-27 11:38:45,031:INFO:FAQ update process triggered successfully.
+2024-08-27 11:38:45,032:INFO:All cogs loaded successfully.
+2024-08-27 11:38:45,032:INFO:All cogs loaded successfully.
+2024-08-27 11:38:45,032:INFO:AVA is connected and ready.
+2024-08-27 11:38:45,032:INFO:AVA is connected and ready.

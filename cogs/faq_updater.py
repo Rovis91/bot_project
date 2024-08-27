@@ -74,25 +74,21 @@ class FaqUpdater(commands.Cog):
 
     async def retrieve_new_forum_posts(self, forum_channel):
         last_post_id = self.get_last_processed_post_id()
+        logging.info(f"Last processed post ID: {last_post_id}") 
         posts = []
 
         if forum_channel:
             for thread in forum_channel.threads:
                 if last_post_id is None or thread.id > last_post_id:
-                    all_messages = []
-                    async for message in thread.history(limit=100):
-                        all_messages.append({
-                            "id": message.id,
-                            "content": message.content,
+                    logging.info(f"Processing thread {thread}")
+                    async for message in thread.history(limit=1):  # Only need the first message
+                        posts.append({
+                            "thread_id": thread.id,
+                            "thread_name": thread.name,  # This is the question
+                            "message_content": message.content,  # This is the answer
                             "author": message.author.name,
-                            "timestamp": str(message.created_at),
-                            "thread_name": thread.name
+                            "timestamp": str(message.created_at)
                         })
-                    posts.append({
-                        "thread_id": thread.id,
-                        "thread_name": thread.name,
-                        "messages": all_messages
-                    })
 
         logging.info(f"Found {len(posts)} new posts.")
         return posts
@@ -100,11 +96,16 @@ class FaqUpdater(commands.Cog):
     def extract_questions_and_answers(self, posts):
         qas = []
         for post in posts:
-            if len(post["messages"]) >= 2:
-                answer = post["messages"][0]["content"]
-                question = post["messages"][1]["content"]
-                qas.append({"question": question, "answer": answer})
+            question = post["thread_name"]
+            answer = post["message_content"]
+
+            qas.append({"question": question, "answer": answer})
+
+            # Logging the detected question and answer
+            logging.info(f"Detected FAQ Entry - Question: {question}, Answer: {answer}")
+
         return qas
+
 
     def backup_and_update_faq(self, new_qas):
         faq_file_path = "vector_store/faq.json"
