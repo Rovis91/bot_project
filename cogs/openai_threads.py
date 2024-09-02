@@ -32,7 +32,6 @@ Usage:
 - Ensure that the necessary environment variables (`OPENAI_API_KEY`, `OPENAI_ORG_ID`, `ASSISTANT_ID`, etc.) are properly configured.
 
 """
-
 import discord
 from discord.ext import commands
 import requests
@@ -155,8 +154,17 @@ class OpenAIThreadsCog(commands.Cog):
         parts.append(message)
         return parts
 
-    @commands.command(name='q')
-    async def ask_question(self, ctx, *, question):
+    @commands.command(name='ava')
+    async def ask_question(self, ctx, *, question=None):
+        # Fetch the original message if this command is in response to a message
+        if ctx.message.reference is not None:
+            referenced_message = await ctx.channel.fetch_message(ctx.message.reference.message_id)
+            question = referenced_message.content
+            target_message = referenced_message
+        else:
+            # Otherwise, use the question provided with the command
+            target_message = ctx.message
+
         channel_id = str(ctx.channel.id)
 
         # Check if the bot is allowed to respond in this channel
@@ -236,9 +244,9 @@ class OpenAIThreadsCog(commands.Cog):
                         if len(clean_content) > 2000:
                             parts = self.split_message(clean_content)
                             for part in parts:
-                                await ctx.reply(part)
+                                await target_message.reply(part)  # Reply to the original message
                         else:
-                            await ctx.reply(clean_content)
+                            await target_message.reply(clean_content)  # Reply to the original message
                     return
                 else:
                     logging.error(f"Run response does not contain 'status': {run}")

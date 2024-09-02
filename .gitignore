@@ -4,3 +4,4 @@ threads.json
 __pycache__
 vector_store/
 data/
+Prompt.txt
