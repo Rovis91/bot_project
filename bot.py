@@ -1,13 +1,15 @@
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
 import os
 import json
 import logging
 from dotenv import load_dotenv
 from logging.handlers import RotatingFileHandler
+import signal
+import asyncio
 
 # Configure logging to capture INFO level and higher messages
-logging.basicConfig(level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s:%(levelname)s:%(threadName)s:%(message)s')
 
 # Create a rotating file handler to save logs to a file
 log_file = "bot_logs.log"
@@ -42,10 +44,7 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 # Reset the threads.json file at startup
 def reset_threads_file():
     try:
-        if not os.path.exists('data'):
-            os.makedirs('data')
-            logging.info("The 'data' folder was created as it did not exist.")
-
+        os.makedirs('data', exist_ok=True)  # Create directory safely
         with open('data/threads.json', 'w') as f:
             json.dump({}, f)
         logging.info("The threads.json file has been reset.")
@@ -62,7 +61,7 @@ async def load_cogs():
             logging.info(f"The cog {cog} was successfully loaded.")
         except Exception as e:
             logging.error(f"Unable to load cog {cog}. Error: {e}")
-            raise
+            # Log the error and skip to the next cog
 
     # Explicitly call update_faq after loading the cogs
     faq_updater_cog = bot.get_cog('FaqUpdater')
@@ -70,13 +69,10 @@ async def load_cogs():
         await faq_updater_cog.update_faq()
         logging.info("FAQ update process triggered successfully.")
 
-    """
-    # Explicitly call process_waitlist after loading the cogs
-    waitlist_cog = bot.get_cog('WaitlistCog')
-    if waitlist_cog:
-        await waitlist_cog.process_waitlist()
-        logging.info("Waitlist processing triggered successfully.")
-    """
+# Heartbeat log to check if the bot is running
+@tasks.loop(hours=1)
+async def log_heartbeat():
+    logging.info(f"Bot {bot.user.name} is still running and connected.")
 
 # Function to start the bot
 @bot.event
@@ -89,9 +85,19 @@ async def on_ready():
         logging.info("All cogs loaded successfully.")
         
         logging.info(f"{bot.user.name} is connected and ready.")
+        
+        # Start the heartbeat task
+        log_heartbeat.start()
     except Exception as e:
         logging.critical(f"Failed to start the bot: {e}")
         await bot.close()
+
+# Handle bot shutdown signal
+def signal_handler(signal, frame):
+    logging.info("Received shutdown signal, closing bot.")
+    asyncio.get_event_loop().stop()
+
+signal.signal(signal.SIGINT, signal_handler)
 
 # Run the bot
 if __name__ == "__main__":

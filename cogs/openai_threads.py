@@ -35,6 +35,7 @@ Usage:
 import discord
 from discord.ext import commands
 import requests
+import aiohttp
 import json
 import os
 import re
@@ -105,44 +106,40 @@ class OpenAIThreadsCog(commands.Cog):
             logging.error(f"Erreur lors de la création du thread : {e}")
             return response.json()
 
-    def get_latest_assistant_message(self, thread_id, run_id):
+
+
+    async def get_latest_assistant_message(self, thread_id, run_id):
         try:
-            messages_response = requests.get(
-                f'https://api.openai.com/v1/threads/{thread_id}/messages',
-                headers={
-                    'Authorization': f'Bearer {self.OPENAI_API_KEY}',
-                    'OpenAI-Beta': 'assistants=v2',
-                    'OpenAI-Organization': self.OPENAI_ORG_ID
-                },
-                params={
-                    'order': 'desc',
-                    'limit': 1,
-                    'run_id': run_id
-                }
-            )
-            messages_response.raise_for_status()
-            messages = messages_response.json()
+            async with aiohttp.ClientSession() as session:  # Use aiohttp for async requests
+                async with session.get(
+                    f'https://api.openai.com/v1/threads/{thread_id}/messages',
+                    headers={
+                        'Authorization': f'Bearer {self.OPENAI_API_KEY}',
+                        'OpenAI-Beta': 'assistants=v2',
+                        'OpenAI-Organization': self.OPENAI_ORG_ID
+                    },
+                    params={
+                        'order': 'desc',
+                        'limit': 1,
+                        'run_id': run_id
+                    }
+                ) as response:
+                    response.raise_for_status()
+                    messages = await response.json()
 
-            if 'data' not in messages:
-                logging.error(f"Erreur: la clé 'data' est manquante dans la réponse de l'API. Réponse complète: {messages}")
-                return None
+                    # Process the 'messages' data
+                    if 'data' not in messages:
+                        logging.error("Erreur: Missing 'data' in API response.")
+                        return None
 
-            for msg in messages['data']:
-                if msg['role'] == 'assistant':
-                    if isinstance(msg['content'], list):
-                        text_content = ""
-                        for content_item in msg['content']:
-                            if content_item['type'] == 'text':
-                                text_content += content_item['text']['value'] + "\n"
-                        return text_content.strip()
-                    else:
-                        return msg['content']
+                    for msg in messages['data']:
+                        if msg['role'] == 'assistant':
+                            return msg['content']
             return None
-
-        except requests.exceptions.RequestException as e:
+        except aiohttp.ClientError as e:
             logging.error(f"Erreur lors de la récupération des messages : {e}")
             return None
-
+        
     def split_message(self, message, max_length=2000):
         parts = []
         while len(message) > max_length:
@@ -246,7 +243,7 @@ class OpenAIThreadsCog(commands.Cog):
                             for part in parts:
                                 await target_message.reply(part)  # Reply to the original message
                         else:
-                            await target_message.reply(clean_content)  # Reply to the original message
+                            await target_message.reply(clean_content) 
                     return
                 else:
                     logging.error(f"Run response does not contain 'status': {run}")

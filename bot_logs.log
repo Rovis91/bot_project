@@ -789,3 +789,133 @@ AttributeError: 'ClientUser' object has no attribute 'create_dm'. Did you mean: 
 2024-09-02 12:17:52,781:INFO:Run status: in_progress
 2024-09-02 12:17:54,379:INFO:Run status: completed
 2024-09-02 12:17:54,379:INFO:Run status: completed
+2024-09-02 12:22:51,603:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-09-02 12:22:51,605:INFO:Starting the bot...
+2024-09-02 12:22:51,606:INFO:logging in using static token
+2024-09-02 12:22:53,133:INFO:Shard ID None has connected to Gateway (Session ID: d986e4166b4bec28279ee04a5706222b).
+2024-09-02 12:22:55,207:INFO:The threads.json file has been reset.
+2024-09-02 12:22:55,208:INFO:Threads file reset successfully.
+2024-09-02 12:22:55,208:INFO:Attempting to load cog: cogs.openai_threads
+2024-09-02 12:22:55,863:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-09-02 12:22:55,864:INFO:Attempting to load cog: cogs.faq_updater
+2024-09-02 12:22:57,492:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-09-02 12:22:57,492:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-09-02 12:22:57,493:INFO:Last processed post ID: 1280105615498412085
+2024-09-02 12:22:57,493:INFO:Last processed post ID: 1280105615498412085
+2024-09-02 12:22:57,494:INFO:Found 0 new posts.
+2024-09-02 12:22:57,494:INFO:Found 0 new posts.
+2024-09-02 12:22:57,494:INFO:No new posts found for FAQ update.
+2024-09-02 12:22:57,494:INFO:No new posts found for FAQ update.
+2024-09-02 12:22:57,494:INFO:FAQ update process triggered successfully.
+2024-09-02 12:22:57,494:INFO:FAQ update process triggered successfully.
+2024-09-02 12:22:57,495:INFO:All cogs loaded successfully.
+2024-09-02 12:22:57,495:INFO:All cogs loaded successfully.
+2024-09-02 12:22:57,495:INFO:AVA is connected and ready.
+2024-09-02 12:22:57,495:INFO:AVA is connected and ready.
+2024-09-02 12:23:14,872:INFO:Les threads ont été sauvegardés dans threads.json.
+2024-09-02 12:23:14,872:INFO:Les threads ont été sauvegardés dans threads.json.
+2024-09-02 12:23:14,874:INFO:Thread creation response: {'id': 'thread_j7Np7RbMELARGdruGRn8AP4I', 'object': 'thread', 'created_at': 1725272595, 'metadata': {}, 'tool_resources': {}}
+2024-09-02 12:23:14,874:INFO:Thread creation response: {'id': 'thread_j7Np7RbMELARGdruGRn8AP4I', 'object': 'thread', 'created_at': 1725272595, 'metadata': {}, 'tool_resources': {}}
+2024-09-02 12:23:14,879:INFO:Les threads ont été sauvegardés dans threads.json.
+2024-09-02 12:23:14,879:INFO:Les threads ont été sauvegardés dans threads.json.
+2024-09-02 12:23:16,934:INFO:Run status: in_progress
+2024-09-02 12:23:16,934:INFO:Run status: in_progress
+2024-09-02 12:23:18,562:INFO:Run status: in_progress
+2024-09-02 12:23:18,562:INFO:Run status: in_progress
+2024-09-02 12:23:20,182:INFO:Run status: completed
+2024-09-02 12:23:20,182:INFO:Run status: completed
+2024-09-05 14:05:55,347:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-09-05 14:05:55,348:INFO:Starting the bot...
+2024-09-05 14:05:55,349:INFO:logging in using static token
+2024-09-05 14:05:56,711:INFO:Shard ID None has connected to Gateway (Session ID: 4c6ac9fa61362b067c6362c701e35cd0).
+2024-09-05 14:05:58,788:INFO:The threads.json file has been reset.
+2024-09-05 14:05:58,789:INFO:Threads file reset successfully.
+2024-09-05 14:05:58,790:INFO:Attempting to load cog: cogs.openai_threads
+2024-09-05 14:05:59,544:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-09-05 14:05:59,544:INFO:Attempting to load cog: cogs.faq_updater
+2024-09-05 14:06:01,440:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-09-05 14:06:01,440:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-09-05 14:06:01,445:INFO:Last processed post ID: 1280105615498412085
+2024-09-05 14:06:01,445:INFO:Last processed post ID: 1280105615498412085
+2024-09-05 14:06:01,446:INFO:Processing thread c’est quoi les colis vides ?
+2024-09-05 14:06:01,446:INFO:Processing thread c’est quoi les colis vides ?
+2024-09-05 14:06:01,774:INFO:Found 1 new posts.
+2024-09-05 14:06:01,774:INFO:Found 1 new posts.
+2024-09-05 14:06:01,775:INFO:Detected FAQ Entry - Question: c’est quoi les colis vides ?, Answer: Les colis vides c’est le fait d’acheter un colis ou tu aura rien dedans et en echange on te rembourse + une com d’environ 10€.
+
+En gros tu laisse un avis sur un article que tu ne recoit pas et on te paye 10€ pour cela.
+
+Attention, ce n’est pas tres éthique car tu ne tests pas réellement le produit, donc a toi de voir si tu préfère rester éthique ou non
+2024-09-05 14:06:01,775:INFO:Detected FAQ Entry - Question: c’est quoi les colis vides ?, Answer: Les colis vides c’est le fait d’acheter un colis ou tu aura rien dedans et en echange on te rembourse + une com d’environ 10€.
+
+En gros tu laisse un avis sur un article que tu ne recoit pas et on te paye 10€ pour cela.
+
+Attention, ce n’est pas tres éthique car tu ne tests pas réellement le produit, donc a toi de voir si tu préfère rester éthique ou non
+2024-09-05 14:06:01,787:INFO:Backup created at vector_store/faq.json.20240905_140601.bak
+2024-09-05 14:06:01,787:INFO:Backup created at vector_store/faq.json.20240905_140601.bak
+2024-09-05 14:06:01,791:INFO:Deleted old backup: vector_store\faq.json.20240820_183943.bak
+2024-09-05 14:06:01,791:INFO:Deleted old backup: vector_store\faq.json.20240820_183943.bak
+2024-09-05 14:06:01,802:INFO:FAQ file updated successfully.
+2024-09-05 14:06:01,802:INFO:FAQ file updated successfully.
+2024-09-05 14:06:01,803:INFO:Last processed post ID updated to 1280220167300976764.
+2024-09-05 14:06:01,803:INFO:Last processed post ID updated to 1280220167300976764.
+2024-09-05 14:06:01,803:INFO:Added 1 new entries to the FAQ.
+2024-09-05 14:06:01,803:INFO:Added 1 new entries to the FAQ.
+2024-09-05 14:06:02,911:INFO:HTTP Request: GET https://api.openai.com/v1/vector_stores?limit=1&order=desc "HTTP/1.1 200 OK"
+2024-09-05 14:06:02,911:INFO:HTTP Request: GET https://api.openai.com/v1/vector_stores?limit=1&order=desc "HTTP/1.1 200 OK"
+2024-09-05 14:06:02,917:INFO:Most recent vector store ID: vs_pwCBahvTjbKYDHyMYgni3SWr
+2024-09-05 14:06:02,917:INFO:Most recent vector store ID: vs_pwCBahvTjbKYDHyMYgni3SWr
+2024-09-05 14:06:03,868:INFO:HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-09-05 14:06:03,868:INFO:HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-09-05 14:06:03,870:INFO:Uploaded file: faq.json with ID: file-EqQFTbj8nX0xAZgxmNwgNNgP
+2024-09-05 14:06:03,870:INFO:Uploaded file: faq.json with ID: file-EqQFTbj8nX0xAZgxmNwgNNgP
+2024-09-05 14:06:03,870:INFO:Skipping backup file: faq.json.20240820_184346.bak
+2024-09-05 14:06:03,870:INFO:Skipping backup file: faq.json.20240820_184346.bak
+2024-09-05 14:06:03,871:INFO:Skipping backup file: faq.json.20240821_111445.bak
+2024-09-05 14:06:03,871:INFO:Skipping backup file: faq.json.20240821_111445.bak
+2024-09-05 14:06:03,871:INFO:Skipping backup file: faq.json.20240827_113838.bak
+2024-09-05 14:06:03,871:INFO:Skipping backup file: faq.json.20240827_113838.bak
+2024-09-05 14:06:03,871:INFO:Skipping backup file: faq.json.20240902_121535.bak
+2024-09-05 14:06:03,871:INFO:Skipping backup file: faq.json.20240902_121535.bak
+2024-09-05 14:06:03,872:INFO:Skipping backup file: faq.json.20240905_140601.bak
+2024-09-05 14:06:03,872:INFO:Skipping backup file: faq.json.20240905_140601.bak
+2024-09-05 14:06:04,709:INFO:HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-09-05 14:06:04,709:INFO:HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-09-05 14:06:04,709:INFO:Uploaded file: forma.json with ID: file-M4wGzUttQ1o2ZAUqaEt3prWI
+2024-09-05 14:06:04,709:INFO:Uploaded file: forma.json with ID: file-M4wGzUttQ1o2ZAUqaEt3prWI
+2024-09-05 14:06:05,309:INFO:HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-09-05 14:06:05,309:INFO:HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-09-05 14:06:05,311:INFO:Uploaded file: plan.json with ID: file-VOw4Pxyn61cHbThvpjjFg5Rn
+2024-09-05 14:06:05,311:INFO:Uploaded file: plan.json with ID: file-VOw4Pxyn61cHbThvpjjFg5Rn
+2024-09-05 14:06:05,948:INFO:HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-09-05 14:06:05,948:INFO:HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-09-05 14:06:05,950:INFO:Uploaded file: regles.json with ID: file-JNGCCKjE2bPkOI2HUbLi968t
+2024-09-05 14:06:05,950:INFO:Uploaded file: regles.json with ID: file-JNGCCKjE2bPkOI2HUbLi968t
+2024-09-05 14:06:07,312:INFO:HTTP Request: POST https://api.openai.com/v1/vector_stores "HTTP/1.1 200 OK"
+2024-09-05 14:06:07,312:INFO:HTTP Request: POST https://api.openai.com/v1/vector_stores "HTTP/1.1 200 OK"
+2024-09-05 14:06:07,315:INFO:Created new vector store with ID: vs_Hca7sf45OSpTjy8OB6VHLTLF
+2024-09-05 14:06:07,315:INFO:Created new vector store with ID: vs_Hca7sf45OSpTjy8OB6VHLTLF
+2024-09-05 14:06:11,433:INFO:HTTP Request: DELETE https://api.openai.com/v1/vector_stores/vs_pwCBahvTjbKYDHyMYgni3SWr "HTTP/1.1 200 OK"
+2024-09-05 14:06:11,433:INFO:HTTP Request: DELETE https://api.openai.com/v1/vector_stores/vs_pwCBahvTjbKYDHyMYgni3SWr "HTTP/1.1 200 OK"
+2024-09-05 14:06:11,438:INFO:Deleted old vector store with ID: vs_pwCBahvTjbKYDHyMYgni3SWr
+2024-09-05 14:06:11,438:INFO:Deleted old vector store with ID: vs_pwCBahvTjbKYDHyMYgni3SWr
+2024-09-05 14:06:12,229:INFO:HTTP Request: POST https://api.openai.com/v1/assistants/asst_ujXDBVQQTU6XFopESTBVkHCX "HTTP/1.1 200 OK"
+2024-09-05 14:06:12,229:INFO:HTTP Request: POST https://api.openai.com/v1/assistants/asst_ujXDBVQQTU6XFopESTBVkHCX "HTTP/1.1 200 OK"
+2024-09-05 14:06:12,283:INFO:Linked new vector store to assistant: asst_ujXDBVQQTU6XFopESTBVkHCX
+2024-09-05 14:06:12,283:INFO:Linked new vector store to assistant: asst_ujXDBVQQTU6XFopESTBVkHCX
+2024-09-05 14:06:12,284:INFO:The threads.json file has been reset.
+2024-09-05 14:06:12,284:INFO:The threads.json file has been reset.
+2024-09-05 14:06:12,285:INFO:Vector store updated and assistant linked successfully.
+2024-09-05 14:06:12,285:INFO:Vector store updated and assistant linked successfully.
+2024-09-05 14:06:12,285:INFO:FAQ update process triggered successfully.
+2024-09-05 14:06:12,285:INFO:FAQ update process triggered successfully.
+2024-09-05 14:06:12,286:INFO:All cogs loaded successfully.
+2024-09-05 14:06:12,286:INFO:All cogs loaded successfully.
+2024-09-05 14:06:12,286:INFO:AVA is connected and ready.
+2024-09-05 14:06:12,286:INFO:AVA is connected and ready.
+2024-09-05 14:06:12,287:INFO:Bot AVA is still running and connected.
+2024-09-05 14:06:12,287:INFO:Bot AVA is still running and connected.
+2024-09-05 14:06:23,483:INFO:Received shutdown signal, closing bot.
+2024-09-05 14:06:23,483:INFO:Received shutdown signal, closing bot.
+2024-09-05 14:06:23,488:CRITICAL:Failed to run the bot: Event loop stopped before Future completed.
+2024-09-05 14:06:23,488:CRITICAL:Failed to run the bot: Event loop stopped before Future completed.
