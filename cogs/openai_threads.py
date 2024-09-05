@@ -1,41 +1,6 @@
-"""
-OpenAI Threads Cog for Discord Bot
-==================================
-
-This module implements the `OpenAIThreadsCog` for a Discord bot, enabling the bot to interact with the OpenAI API 
-for handling threaded conversations with an AI assistant. 
-
-Main Features:
---------------
-1. **Thread Management**:
-   - Automatically creates threads in the OpenAI API for handling ongoing conversations.
-   - Stores thread IDs locally in `threads.json` for future reference and conversation continuation.
-
-2. **Channel Restriction**:
-   - Restricts bot responses to certain channels, which are defined in the `.env` file using the `ALLOWED_CHANNELS` variable.
-   - If no channels are specified, the bot will respond in all channels by default.
-
-3. **Message Handling**:
-   - Splits long messages into smaller parts to comply with Discord's message length limits.
-   - Filters out specific content (e.g., references) from the assistant's responses.
-
-4. **Logging**:
-   - Provides detailed logging for message creation, thread management, API interactions, and error handling.
-   - Integrates with the global logging configuration defined in the main bot script.
-
-5. **Retry Mechanism**:
-   - Implements a retry mechanism for API calls, attempting to fetch results up to three times in case of failure.
-
-Usage:
-------
-- This cog is designed to be part of a larger Discord bot and should be loaded during the bot's startup.
-- Ensure that the necessary environment variables (`OPENAI_API_KEY`, `OPENAI_ORG_ID`, `ASSISTANT_ID`, etc.) are properly configured.
-
-"""
 import discord
 from discord.ext import commands
 import requests
-import aiohttp
 import json
 import os
 import re
@@ -106,40 +71,44 @@ class OpenAIThreadsCog(commands.Cog):
             logging.error(f"Erreur lors de la création du thread : {e}")
             return response.json()
 
-
-
     async def get_latest_assistant_message(self, thread_id, run_id):
         try:
-            async with aiohttp.ClientSession() as session:  # Use aiohttp for async requests
-                async with session.get(
-                    f'https://api.openai.com/v1/threads/{thread_id}/messages',
-                    headers={
-                        'Authorization': f'Bearer {self.OPENAI_API_KEY}',
-                        'OpenAI-Beta': 'assistants=v2',
-                        'OpenAI-Organization': self.OPENAI_ORG_ID
-                    },
-                    params={
-                        'order': 'desc',
-                        'limit': 1,
-                        'run_id': run_id
-                    }
-                ) as response:
-                    response.raise_for_status()
-                    messages = await response.json()
+            messages_response = requests.get(
+                f'https://api.openai.com/v1/threads/{thread_id}/messages',
+                headers={
+                    'Authorization': f'Bearer {self.OPENAI_API_KEY}',
+                    'OpenAI-Beta': 'assistants=v2',
+                    'OpenAI-Organization': self.OPENAI_ORG_ID
+                },
+                params={
+                    'order': 'desc',
+                    'limit': 1,
+                    'run_id': run_id
+                }
+            )
+            messages_response.raise_for_status()
+            messages = messages_response.json()
 
-                    # Process the 'messages' data
-                    if 'data' not in messages:
-                        logging.error("Erreur: Missing 'data' in API response.")
-                        return None
+            if 'data' not in messages:
+                logging.error(f"Erreur: la clé 'data' est manquante dans la réponse de l'API. Réponse complète: {messages}")
+                return None
 
-                    for msg in messages['data']:
-                        if msg['role'] == 'assistant':
-                            return msg['content']
+            for msg in messages['data']:
+                if msg['role'] == 'assistant':
+                    if isinstance(msg['content'], list):
+                        text_content = ""
+                        for content_item in msg['content']:
+                            if content_item['type'] == 'text':
+                                text_content += content_item['text']['value'] + "\n"
+                        return text_content.strip()
+                    else:
+                        return msg['content']
             return None
-        except aiohttp.ClientError as e:
+
+        except requests.exceptions.RequestException as e:
             logging.error(f"Erreur lors de la récupération des messages : {e}")
             return None
-        
+
     def split_message(self, message, max_length=2000):
         parts = []
         while len(message) > max_length:
@@ -232,7 +201,7 @@ class OpenAIThreadsCog(commands.Cog):
                         await ctx.reply(f"Run failed: {last_error}")
                         return
 
-                    assistant_message_content = self.get_latest_assistant_message(self.threads[channel_id], run["id"])
+                    assistant_message_content = await self.get_latest_assistant_message(self.threads[channel_id], run["id"])  # Awaited the coroutine
 
                     if assistant_message_content:
                         # Suppression des références entourées de 【】
@@ -243,7 +212,7 @@ class OpenAIThreadsCog(commands.Cog):
                             for part in parts:
                                 await target_message.reply(part)  # Reply to the original message
                         else:
-                            await target_message.reply(clean_content) 
+                            await target_message.reply(clean_content)  # Reply to the original message
                     return
                 else:
                     logging.error(f"Run response does not contain 'status': {run}")

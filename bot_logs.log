@@ -919,3 +919,75 @@ Attention, ce n’est pas tres éthique car tu ne tests pas réellement le produit, 
 2024-09-05 14:06:23,483:INFO:Received shutdown signal, closing bot.
 2024-09-05 14:06:23,488:CRITICAL:Failed to run the bot: Event loop stopped before Future completed.
 2024-09-05 14:06:23,488:CRITICAL:Failed to run the bot: Event loop stopped before Future completed.
+2024-09-05 14:16:50,976:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-09-05 14:16:50,977:INFO:Starting the bot...
+2024-09-05 14:16:50,979:INFO:logging in using static token
+2024-09-05 14:16:52,501:INFO:Shard ID None has connected to Gateway (Session ID: 494abdc2cf5ea6dfb4b633b061ae25b6).
+2024-09-05 14:16:54,535:INFO:The threads.json file has been reset.
+2024-09-05 14:16:54,536:INFO:Threads file reset successfully.
+2024-09-05 14:16:54,537:INFO:Attempting to load cog: cogs.openai_threads
+2024-09-05 14:16:55,314:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-09-05 14:16:55,315:INFO:Attempting to load cog: cogs.faq_updater
+2024-09-05 14:16:56,974:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-09-05 14:16:56,974:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-09-05 14:16:56,980:INFO:Last processed post ID: 1280220167300976764
+2024-09-05 14:16:56,980:INFO:Last processed post ID: 1280220167300976764
+2024-09-05 14:16:56,981:INFO:Found 0 new posts.
+2024-09-05 14:16:56,981:INFO:Found 0 new posts.
+2024-09-05 14:16:56,981:INFO:No new posts found for FAQ update.
+2024-09-05 14:16:56,981:INFO:No new posts found for FAQ update.
+2024-09-05 14:16:56,982:INFO:FAQ update process triggered successfully.
+2024-09-05 14:16:56,982:INFO:FAQ update process triggered successfully.
+2024-09-05 14:16:56,982:INFO:All cogs loaded successfully.
+2024-09-05 14:16:56,982:INFO:All cogs loaded successfully.
+2024-09-05 14:16:56,983:INFO:AVA is connected and ready.
+2024-09-05 14:16:56,983:INFO:AVA is connected and ready.
+2024-09-05 14:16:56,984:INFO:Bot AVA is still running and connected.
+2024-09-05 14:16:56,984:INFO:Bot AVA is still running and connected.
+2024-09-05 14:17:29,401:INFO:Message ignored in channel 1237420980981202995 (not in allowed channels).
+2024-09-05 14:17:29,401:INFO:Message ignored in channel 1237420980981202995 (not in allowed channels).
+2024-09-05 14:18:08,892:INFO:Message ignored in channel 1237420980981202995 (not in allowed channels).
+2024-09-05 14:18:08,892:INFO:Message ignored in channel 1237420980981202995 (not in allowed channels).
+2024-09-05 14:18:15,790:INFO:Received shutdown signal, closing bot.
+2024-09-05 14:18:15,790:INFO:Received shutdown signal, closing bot.
+2024-09-05 14:18:15,799:CRITICAL:Failed to run the bot: Event loop stopped before Future completed.
+2024-09-05 14:18:15,799:CRITICAL:Failed to run the bot: Event loop stopped before Future completed.
+2024-09-05 14:18:17,905:WARNING:PyNaCl is not installed, voice will NOT be supported
+2024-09-05 14:18:17,905:INFO:Starting the bot...
+2024-09-05 14:18:17,905:INFO:logging in using static token
+2024-09-05 14:18:19,483:INFO:Shard ID None has connected to Gateway (Session ID: 5cd3a797f541367871858245d44a6e86).
+2024-09-05 14:18:21,554:INFO:The threads.json file has been reset.
+2024-09-05 14:18:21,554:INFO:Threads file reset successfully.
+2024-09-05 14:18:21,554:INFO:Attempting to load cog: cogs.openai_threads
+2024-09-05 14:18:22,265:INFO:The cog cogs.openai_threads was successfully loaded.
+2024-09-05 14:18:22,266:INFO:Attempting to load cog: cogs.faq_updater
+2024-09-05 14:18:23,729:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-09-05 14:18:23,729:INFO:The cog cogs.faq_updater was successfully loaded.
+2024-09-05 14:18:23,729:INFO:Last processed post ID: 1280220167300976764
+2024-09-05 14:18:23,729:INFO:Last processed post ID: 1280220167300976764
+2024-09-05 14:18:23,731:INFO:Found 0 new posts.
+2024-09-05 14:18:23,731:INFO:Found 0 new posts.
+2024-09-05 14:18:23,731:INFO:No new posts found for FAQ update.
+2024-09-05 14:18:23,731:INFO:No new posts found for FAQ update.
+2024-09-05 14:18:23,731:INFO:FAQ update process triggered successfully.
+2024-09-05 14:18:23,731:INFO:FAQ update process triggered successfully.
+2024-09-05 14:18:23,731:INFO:All cogs loaded successfully.
+2024-09-05 14:18:23,731:INFO:All cogs loaded successfully.
+2024-09-05 14:18:23,733:INFO:AVA is connected and ready.
+2024-09-05 14:18:23,733:INFO:AVA is connected and ready.
+2024-09-05 14:18:23,733:INFO:Bot AVA is still running and connected.
+2024-09-05 14:18:23,733:INFO:Bot AVA is still running and connected.
+2024-09-05 14:18:27,927:INFO:Les threads ont été sauvegardés dans threads.json.
+2024-09-05 14:18:27,927:INFO:Les threads ont été sauvegardés dans threads.json.
+2024-09-05 14:18:27,928:INFO:Thread creation response: {'id': 'thread_n72owCds2dNHMTr7LBNHlbBx', 'object': 'thread', 'created_at': 1725538706, 'metadata': {}, 'tool_resources': {}}
+2024-09-05 14:18:27,928:INFO:Thread creation response: {'id': 'thread_n72owCds2dNHMTr7LBNHlbBx', 'object': 'thread', 'created_at': 1725538706, 'metadata': {}, 'tool_resources': {}}
+2024-09-05 14:18:27,929:INFO:Les threads ont été sauvegardés dans threads.json.
+2024-09-05 14:18:27,929:INFO:Les threads ont été sauvegardés dans threads.json.
+2024-09-05 14:18:29,863:INFO:Run status: in_progress
+2024-09-05 14:18:29,863:INFO:Run status: in_progress
+2024-09-05 14:18:31,599:INFO:Run status: completed
+2024-09-05 14:18:31,599:INFO:Run status: completed
+2024-09-05 14:21:42,206:INFO:Received shutdown signal, closing bot.
+2024-09-05 14:21:42,206:INFO:Received shutdown signal, closing bot.
+2024-09-05 14:21:42,221:CRITICAL:Failed to run the bot: Event loop stopped before Future completed.
+2024-09-05 14:21:42,221:CRITICAL:Failed to run the bot: Event loop stopped before Future completed.
