@@ -16,8 +16,7 @@ This bot is a multi-functional Discord assistant powered by OpenAI's API. It off
 1. **Clone the Repository**:
 
     ```bash
-    git clone https://github.com/your-repo-url
-    cd your-repo
+    git clone https://github.com/Rovis91/bot_project
     ```
 
 2. **Install Dependencies**:

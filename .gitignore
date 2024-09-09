@@ -1,7 +1,8 @@
 .env
-.log
+*.log
 threads.json
 __pycache__
 vector_store/
 data/
 Prompt.txt
+openai cleaner.py
