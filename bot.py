@@ -78,9 +78,6 @@ async def log_heartbeat():
 @bot.event
 async def on_ready():
     try:
-        reset_threads_file()  # Reset the threads.json file at startup
-        logging.info("Threads file reset successfully.")
-        
         await load_cogs()  # Load cogs
         logging.info("All cogs loaded successfully.")
         
