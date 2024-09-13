@@ -341,6 +341,16 @@ class FaqUpdater(commands.Cog):
         text = re.sub(r'<@!?\d+>', '', text)
         # Remove Discord channel mentions
         text = re.sub(r'<#\d+>', '', text)
+        # Remove double and single quotes
+        text = re.sub(r"[\"']", '', text)
+        # Remove newline characters
+        text = text.replace('\n', '')
+        # Remove backslashes
+        text = text.replace('\\', '')
+        # Optionally remove forward slashes
+        text = text.replace('/', '')
+        # Remove carriage return and tab characters
+        text = text.replace('\r', '').replace('\t', '')
         return text
 
 async def setup(bot):

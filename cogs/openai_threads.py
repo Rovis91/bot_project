@@ -131,6 +131,10 @@ class OpenAIThreadsCog(commands.Cog):
             # Otherwise, use the question provided with the command
             target_message = ctx.message
 
+        # Remove the "!ava" prefix from the question, if present
+        if question.startswith('!ava'):
+            question = question[len('!ava'):].strip()
+
         channel_id = str(ctx.channel.id)
 
         # Check if the bot is allowed to respond in this channel

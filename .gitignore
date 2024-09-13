@@ -6,3 +6,4 @@ vector_store/
 data/
 Prompt.txt
 openai cleaner.py
+db.py
