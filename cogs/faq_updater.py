@@ -50,20 +50,28 @@ class FaqUpdater(commands.Cog):
         self.client = OpenAI()
         self.faq_file_path = "vector_store/faq.json"
         self.last_processed_file = "data/last_processed_post.json"
+        self.newly_uploaded_file_ids = []  
 
     @commands.Cog.listener()
     async def on_ready(self):
         logging.info("Bot is ready, starting FAQ update process.")
-        await self.update_faq()
+        try:
+            await self.update_faq()
+        except Exception as e:
+            logging.error(f"An error occurred during the FAQ update process: {str(e)}")
 
     async def update_faq(self):
-        forum_ids = [int(os.getenv('FORUM_ID_1')), int(os.getenv('FORUM_ID_2'))]
+        forum_ids = [os.getenv('FORUM_ID_1'), os.getenv('FORUM_ID_2')]
         new_posts = []
 
         last_post_ids = self.get_last_processed_post_id()
 
         for forum_id in forum_ids:
-            forum_channel = self.bot.get_channel(forum_id)
+            if forum_id is None:
+                logging.error(f"Forum ID not found in environment variables. Please check your .env file.")
+                continue
+
+            forum_channel = self.bot.get_channel(int(forum_id))
             if forum_channel is None:
                 logging.error(f"Forum channel {forum_id} not found. Please check the ID.")
                 continue
@@ -84,23 +92,24 @@ class FaqUpdater(commands.Cog):
             logging.info("No new posts found for FAQ update.")
 
     async def retrieve_new_forum_posts(self, forum_channel, last_post_id):
-        logging.info(f"Last processed post ID: {last_post_id}") 
+        logging.info(f"Last processed post ID for channel {forum_channel.id}: {last_post_id}") 
         posts = []
 
         if forum_channel:
             for thread in forum_channel.threads:
-                if last_post_id is None or thread.id > last_post_id:
+                if last_post_id is None or thread.id > int(last_post_id):
                     logging.info(f"Processing thread {thread}")
                     async for message in thread.history(limit=1):  # Only need the first message
                         posts.append({
-                            "thread_id": thread.id,
-                            "thread_name": self.clean_text(thread.name),  # Clean the thread name
-                            "message_content": self.clean_text(message.content),  # Clean the message content
-                            "author": self.clean_text(message.author.name),  # Clean author name if necessary
+                            "channel_id": str(forum_channel.id),
+                            "id": thread.id,
+                            "thread_name": self.clean_text(thread.name),
+                            "message_content": self.clean_text(message.content),
+                            "author": self.clean_text(message.author.name),
                             "timestamp": str(message.created_at)
                         })
 
-        logging.info(f"Found {len(posts)} new posts.")
+        logging.info(f"Found {len(posts)} new posts in channel {forum_channel.id}.")
         return posts
     
     def extract_questions_and_answers(self, posts):
@@ -160,40 +169,49 @@ class FaqUpdater(commands.Cog):
             with open(self.last_processed_file, 'r') as f:
                 data = json.load(f)
 
-            # Extract the most recent post IDs for each forum
-            forum_ids = {
-                str(os.getenv('FORUM_ID_1')): max(data.values(), default=None),
-                str(os.getenv('FORUM_ID_2')): max(data.values(), default=None)
-            }
+            # Create a dictionary with channel IDs as keys and their last processed post IDs as values
+            channel_ids = [os.getenv('FORUM_ID_1'), os.getenv('FORUM_ID_2')]
+            forum_ids = {str(channel_id): data.get(str(channel_id)) for channel_id in channel_ids if channel_id}
 
             return forum_ids
         except (json.JSONDecodeError, IOError) as e:
             logging.info(f"Failed to load last processed post IDs: {e}")
-            return {str(forum_id): None for forum_id in [os.getenv('FORUM_ID_1'), os.getenv('FORUM_ID_2')]}
+            return {str(channel_id): None for channel_id in [os.getenv('FORUM_ID_1'), os.getenv('FORUM_ID_2')] if channel_id}
 
     def update_last_processed_post(self, posts):
-        """
-        Updates the JSON file with the IDs of the last processed posts for each forum.
-        
-        Args:
-            posts (list): A list of post dictionaries containing the thread ID and timestamp.
-        """
-        last_processed_posts = {}
-
-        for post in posts:
-            forum_id = str(post["thread_id"])
-            last_processed_posts[forum_id] = post["thread_id"]
-
-        # Keep only the most recent post ID for each channel
-        last_processed_posts = dict(sorted(last_processed_posts.items(), key=lambda item: item[1], reverse=True)[:2])
-
-        try:
-            with open(self.last_processed_file, 'w') as f:
-                json.dump(last_processed_posts, f, indent=4)
-            logging.info("Last processed post IDs updated successfully.")
-        except (json.JSONDecodeError, IOError) as e:
-            logging.error(f"Failed to update last processed post IDs: {e}")
+            """
+            Updates the JSON file with the IDs of the last processed posts for each forum.
             
+            Args:
+                posts (list): A list of post dictionaries containing the channel_id and id.
+            """
+            last_processed_posts = {}
+
+            # Get forum IDs from environment variables
+            forum_ids = [os.getenv('FORUM_ID_1'), os.getenv('FORUM_ID_2')]
+
+            for post in posts:
+                channel_id = str(post["channel_id"])
+                if channel_id in forum_ids:
+                    if channel_id not in last_processed_posts or post["id"] > last_processed_posts[channel_id]:
+                        last_processed_posts[channel_id] = post["id"]
+            try:
+                # Load existing data
+                try:
+                    with open(self.last_processed_file, 'r') as f:
+                        existing_data = json.load(f)
+                except (json.JSONDecodeError, IOError):
+                    existing_data = {}
+
+                # Update existing data with new information
+                existing_data.update(last_processed_posts)
+
+                # Write updated data back to file
+                with open(self.last_processed_file, 'w') as f:
+                    json.dump(existing_data, f, indent=4)
+                logging.info("Last processed post IDs updated successfully.")
+            except IOError as e:
+                logging.error(f"Failed to update last processed post IDs: {e}")
 
 
     async def update_vector_store_and_assistant(self):
@@ -203,41 +221,36 @@ class FaqUpdater(commands.Cog):
 
         try:
             # Step 1: Upload files
-            file_ids = await self.upload_files_from_directory(vector_store_dir)
+            self.newly_uploaded_file_ids = await self.upload_files_from_directory(vector_store_dir)
 
-            if not file_ids:
+            if not self.newly_uploaded_file_ids:
                 logging.error("No files uploaded. Aborting vector store creation.")
                 return
-            
-            # Step 2: Delete the old vector store and its files
+
+            # Step 2: Delete the old vector store
             if old_vector_store_id:
                 self.delete_old_vector_store(old_vector_store_id)
-                await self.delete_all_files()
 
             # Step 3: Create a new vector store
-            new_vector_store_id = self.create_new_vector_store(file_ids)
+            new_vector_store_id = self.create_new_vector_store(self.newly_uploaded_file_ids)
+
+            if not new_vector_store_id:
+                logging.error("Failed to create new vector store. Aborting process.")
+                return
 
             # Step 4: Link the new vector store to the assistant
             self.link_vector_store_to_assistant(assistant_id, new_vector_store_id)
 
-            # Step 5: Reset threads only if vector store update is successful
+            # Step 5: Delete old files only after successful vector store creation
+            await self.delete_old_files()
+
+            # Step 6: Reset threads only if vector store update is successful
             reset_threads_file()
 
             logging.info("Vector store updated and assistant linked successfully.")
 
         except Exception as e:
             logging.error(f"An error occurred during the update process: {str(e)}")
-
-    async def get_most_recent_vector_store(self):
-        try:
-            vector_stores = self.client.beta.vector_stores.list(limit=1, order="desc")
-            for store in vector_stores:
-                logging.info(f"Most recent vector store ID: {store.id}")
-                return store.id
-            return None
-        except Exception as e:
-            logging.error(f"Failed to retrieve vector stores: {str(e)}")
-            return None
 
     async def upload_files_from_directory(self, directory):
         file_ids = []
@@ -258,6 +271,28 @@ class FaqUpdater(commands.Cog):
         except Exception as e:
             logging.error(f"Failed to upload files: {str(e)}")
         return file_ids
+        
+    async def delete_old_files(self):
+        try:
+            response = self.client.files.list(purpose="assistants")
+            for file in response.data:
+                if file.id not in self.newly_uploaded_file_ids:  # Only delete files that weren't just uploaded
+                    self.client.files.delete(file.id)
+                    logging.info(f"Deleted old file with ID: {file.id}")
+        except Exception as e:
+            logging.error(f"Failed to delete old files: {str(e)}")
+
+    async def get_most_recent_vector_store(self):
+        try:
+            vector_stores = self.client.beta.vector_stores.list(limit=1, order="desc")
+            for store in vector_stores:
+                logging.info(f"Most recent vector store ID: {store.id}")
+                return store.id
+            return None
+        except Exception as e:
+            logging.error(f"Failed to retrieve vector stores: {str(e)}")
+            return None
+
 
     def create_new_vector_store(self, file_ids):
         try:
@@ -278,14 +313,6 @@ class FaqUpdater(commands.Cog):
         except Exception as e:
             logging.error(f"Failed to delete old vector store: {str(e)}")
 
-    async def delete_all_files(self):
-        try:
-            response = self.client.files.list(purpose="assistants")
-            for file in response.data:
-                self.client.files.delete(file.id)
-                logging.info(f"Deleted file with ID: {file.id}")
-        except Exception as e:
-            logging.error(f"Failed to delete files: {str(e)}")
 
     def link_vector_store_to_assistant(self, assistant_id, vector_store_id):
         if not vector_store_id:
@@ -306,7 +333,15 @@ class FaqUpdater(commands.Cog):
             logging.error(f"Failed to link vector store to assistant: {str(e)}")
     
     def clean_text(self, text):
-        return re.sub(r'[^\x00-\x7F]+', '', text)
+        # Remove non-ASCII characters
+        text = re.sub(r'[^\x00-\x7F]+', '', text)
+        # Remove extra whitespace
+        text = re.sub(r'\s+', ' ', text).strip()
+        # Remove Discord mentions
+        text = re.sub(r'<@!?\d+>', '', text)
+        # Remove Discord channel mentions
+        text = re.sub(r'<#\d+>', '', text)
+        return text
 
 async def setup(bot):
     await bot.add_cog(FaqUpdater(bot))
