@@ -52,6 +52,16 @@ class FaqUpdater(commands.Cog):
         self.last_processed_file = "data/last_processed_post.json"
         self.newly_uploaded_file_ids = []  
 
+    async def send_private_message(self, content):
+        """Sends a private message to the specified user with given content."""
+        user_id = int(os.getenv("YOUR_USER_ID"))  # Replace YOUR_USER_ID in .env with your Discord user ID
+        user = await self.bot.fetch_user(user_id)
+        if user:
+            await user.send(content)
+        else:
+            logging.error("Could not find user to send a private message.")
+
+
     @commands.Cog.listener()
     async def on_ready(self):
         logging.info("Bot is ready, starting FAQ update process.")
@@ -68,7 +78,7 @@ class FaqUpdater(commands.Cog):
 
         for forum_id in forum_ids:
             if forum_id is None:
-                logging.error(f"Forum ID not found in environment variables. Please check your .env file.")
+                logging.error("Forum ID not found in environment variables. Please check your .env file.")
                 continue
 
             forum_channel = self.bot.get_channel(int(forum_id))
@@ -81,15 +91,12 @@ class FaqUpdater(commands.Cog):
 
         if new_posts:
             new_qas = self.extract_questions_and_answers(new_posts)
-            self.backup_and_update_faq(new_qas)
+            await self.backup_and_update_faq(new_qas)  # Now correctly awaited
             self.update_last_processed_post(new_posts)
             logging.info(f"Added {len(new_qas)} new entries to the FAQ.")
-
-            # Update vector store and assistant after FAQ update
-            await self.update_vector_store_and_assistant()
-
         else:
             logging.info("No new posts found for FAQ update.")
+
 
     async def retrieve_new_forum_posts(self, forum_channel, last_post_id):
         logging.info(f"Last processed post ID for channel {forum_channel.id}: {last_post_id}") 
@@ -123,35 +130,43 @@ class FaqUpdater(commands.Cog):
 
 
 
-    def backup_and_update_faq(self, new_qas):
+    async def backup_and_update_faq(self, new_qas):
+        original_faq_path = "vector_store/faq_original.json"
         faq_file_path = "vector_store/faq.json"
-        backup_dir = "vector_store/"
-        backup_path = f"{faq_file_path}.{datetime.now().strftime('%Y%m%d_%H%M%S')}.bak"
 
+        # Load the original FAQ to get the entry count
         try:
-            if os.path.exists(faq_file_path):
-                os.rename(faq_file_path, backup_path)
-                logging.info(f"Backup created at {backup_path}")
-                self.manage_backups(backup_dir, "faq.json.*.bak", 5)
-
-        except Exception as e:
-            logging.error(f"Failed to create backup: {e}")
+            with open(original_faq_path, 'r') as f:
+                original_data = json.load(f)
+                original_count = len(original_data["FAQ"])
+        except (json.JSONDecodeError, IOError) as e:
+            logging.error(f"Failed to load faq_original.json: {e}")
             return
 
+        # Load new FAQ entries into a new data structure
+        new_faq_data = {"FAQ": new_qas}
+
+        # Check if the new FAQ entry count is sufficient
+        new_count = len(new_faq_data["FAQ"])
+        if new_count < original_count:
+            logging.error("New FAQ data has fewer entries than the original.")
+            # Send notification for size issue
+            await self.send_private_message("Size issue detected in FAQ update. New FAQ is smaller than the original.")
+            return  # Abort updating
+
+        # Update faq.json only if the entry count is sufficient
         try:
-            faq_data = {"FAQ": []}
-            if os.path.exists(backup_path):
-                with open(backup_path, 'r') as f:
-                    faq_data = json.load(f)
-
-            faq_data["FAQ"].extend(new_qas)
-
             with open(faq_file_path, 'w') as f:
-                json.dump(faq_data, f, indent=4, ensure_ascii=False)
-
+                json.dump(new_faq_data, f, indent=4, ensure_ascii=False)
             logging.info("FAQ file updated successfully.")
+
+            # Notify about the FAQ update with new entries count
+            await self.send_private_message(f"FAQ updated with {new_count - original_count} new entries.")
+
         except (json.JSONDecodeError, IOError) as e:
             logging.error(f"Failed to update faq.json: {e}")
+            await self.send_private_message("An error occurred while trying to update faq.json.")
+
 
     def manage_backups(self, directory, pattern, limit):
         backup_files = sorted(glob.glob(os.path.join(directory, pattern)))
